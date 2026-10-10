@@ -17,6 +17,6 @@ func clear_posts() -> void:
 
 
 func generate_posts() -> void:
-	for i in 39:
+	for i in 29:
 		var p: Post = post_scene.instantiate()
 		post_container.add_child(p)
