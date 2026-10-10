@@ -4,6 +4,12 @@ class_name Dialogue
 
 var _lines: Array[Line]
 
+var topic_question: String
+var topic_title: String
+var topic_image: Texture2D
+var topic_response_comment: String
+var topic_response_love: float
+
 
 ## adds a line and returns it (to adjust it further)
 func al(text: String) -> Line:
@@ -21,12 +27,30 @@ func to_speaker() -> Speaker:
 
 func clear() -> void:
 	_lines = []
+	topic_question = ""
+	topic_image = null
+	topic_title = ""
+	topic_response_comment = ""
+	topic_response_love = 0.0
 
 
 func copy() -> Dialogue:
 	var dlg := Dialogue.new()
+	dlg.topic_question = topic_question
+	dlg.topic_image = topic_image
+	dlg.topic_title = topic_title
+	dlg.topic_response_comment = topic_response_comment
+	dlg.topic_response_love = topic_response_love
 	dlg._lines = _lines
 	return dlg
+
+
+func set_topic_info(question: String, title: String, comment: String, love: float, image: Texture2D = null) -> void:
+	topic_question = question
+	topic_title = title
+	topic_response_comment = comment
+	topic_response_love = love
+	topic_image = image
 
 
 ## line of dialogue

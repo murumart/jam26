@@ -62,6 +62,7 @@ class SoundOptions:
 	var _stream: AudioStream
 	var _pitch: float = 1.0
 	var _volume: float = 1.0
+	var _bus: int
 
 	var _fade_time: float = 0.0
 	var _start_volume: float = 0.0
@@ -96,6 +97,11 @@ class SoundOptions:
 	func pitch(p: float) -> SoundOptions:
 		_pitch = p
 		return self
+	
+	
+	func bus(b: int) -> SoundOptions:
+		_bus = b
+		return self
 
 
 	## if [param s] is [code]true[/code], and a sound with the same stream is
@@ -121,6 +127,7 @@ class SoundOptions:
 		player.volume_linear = 0.0
 		player.pitch_scale = _pitch
 		player.finished.connect(player.queue_free)
+		player.bus = AudioServer.get_bus_name(_bus)
 		if _fade_time > 0:
 			var tw2 := sound.create_tween()
 			tw2.tween_property(player, ^"volume_linear", _volume, _fade_time).from(_start_volume)

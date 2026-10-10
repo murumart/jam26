@@ -29,6 +29,8 @@ the date screen loop.. what is itõ
 var date_dials: Array[Dialogue]
 var state: State
 
+const MAX_TIME := 30000000.0
+
 var _time := 0.0
 var _love := 0.0
 
@@ -38,16 +40,23 @@ var _input_gotten := SignalAggregator.new()
 func _ready() -> void:
 	assert(ui)
 	assert(tablet)
-	var __ := ui.tablet_requested.connect(_tablet_requested)
+	var __: Variant = ui.tablet_requested.connect(_tablet_requested)
 	_input_gotten.connect_to(ran_out_of_time)
 	_setup_dialogue()
+	tablet.socmed.generate_posts(date_dials)
 	_game_loop()
+	__ = SND.play_music(preload("res://scenes/date/laul_v4.ogg"))
+	await get_tree().process_frame
+	await get_tree().process_frame
+	await get_tree().process_frame
+	await get_tree().process_frame
+	tablet.put_down()
 
 
 func _process(delta: float) -> void:
 	if state == State.WAITING_FOR_RESPONSE:
 		_time -= delta
-		ui.display_time(true, _time, 10.0)
+		ui.display_time(true, _time, MAX_TIME)
 		if _time <= 0.0:
 			ran_out_of_time.emit()
 			state = State.TALKING
@@ -70,18 +79,21 @@ func _setup_dialogue() -> void:
 	__ = dlg.al("today we are dating")
 	__ = dlg.al("we are on the date")
 	__ = dlg.al("lets takl about some fun stuff. you know i like this animal..?")
+	dlg.set_topic_info("what's your favourite animals?", "dogs", "i love the DOG", 2.0)
 	date_dials.push_back(dlg.copy())
 	
 	dlg.clear()
 	__ = dlg.al("alllalalalalallaala")
 	__ = dlg.al("lallallaalla")
 	__ = dlg.al("aaaaaaaaaaaahhhhhhhh AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH")
+	dlg.set_topic_info("AHHHHHHHHHAHHHHHHHHHHHHHHHHHHHHHHHHH", "[scream really loudly]", "AUUUUUAH UA HHHAAAAAAAAAAAAAAAAAAUUHHHHH", 4.0)
 	date_dials.push_back(dlg.copy())
 	
 	dlg.clear()
 	__ = dlg.al("1234")
 	__ = dlg.al("1233445")
 	__ = dlg.al("098760987")
+	dlg.set_topic_info("bleep blooply?", "start speaking number station", "283o4237", 1.0)
 	date_dials.push_back(dlg.copy())
 
 
@@ -95,7 +107,7 @@ func _speak_dialogue(progress: int) -> void:
 
 
 func _get_input() -> void:
-	_time = 10.0
+	_time = MAX_TIME
 	ui.display_choices(["???", "???", "???"])
 	state = State.WAITING_FOR_RESPONSE
 	await _input_gotten.fired

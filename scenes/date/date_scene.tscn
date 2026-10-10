@@ -28,5 +28,4 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Tablet" parent="." unique_id=1736198866 instance=ExtResource("4_kc4fe")]
-visible = false
 position = Vector2(595, 312)

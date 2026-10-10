@@ -16,6 +16,10 @@ run/main_scene="uid://dhf87vcspu074"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+SND="*uid://ca100nyt8dth1"
+
 [debug]
 
 gdscript/warnings/unassigned_variable=2

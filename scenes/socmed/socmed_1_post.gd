@@ -9,6 +9,7 @@ const NAMES: PackedStringArray = [
 	"svoisdois", "tdHhfhfhf", "garpplarplg",
 	"glöök", "gammamamma", "nanna-floating",
 	"fjfjjf", "ofcourse", "spyamongus",
+	"spangongus", 
 ]
 
 @export var comments: Tree
@@ -17,28 +18,49 @@ const NAMES: PackedStringArray = [
 
 
 func _ready() -> void:
-	post_title_label.text = generate_comment_string(randi_range(2, 8)).replace_chars("\t\n\r", ord(".")).capitalize() + "?"
-	poster_name_label.text = "u/" + NAMES[randi() % NAMES.size()]
-	_create_comments()
+	pass
 
 
-func _create_comments() -> void:
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseButton:
+		var e := event as InputEventMouseButton
+		if e.button_index == MOUSE_BUTTON_WHEEL_DOWN or e.button_index == MOUSE_BUTTON_WHEEL_UP:
+			# WHAT THE FUCK!!
+			comments.mouse_filter = Control.MOUSE_FILTER_IGNORE
+			comments.set_mouse_filter.call_deferred(Control.MOUSE_FILTER_STOP)
+
+
+func _process(_d: float) -> void:
+	# THIS SHIT SUCKS!!!! FUCK!!!!!!!!!!
+	comments.set_h_scroll_enabled(true)
+	comments.set_h_scroll_enabled.call_deferred(false)
+	comments.set_v_scroll_enabled(true)
+	comments.set_v_scroll_enabled.call_deferred(false)
+	
+
+
+func create_comments() -> void:
 	for i in randi_range(1, 3):
 		var __ := add_random_child(comments)
 	#var childs := get_tree_children(comments.get_root())
 	#comments.custom_minimum_size.y = maxf(120.0, .size() * 64.0)
 
 
-static func add_random_child(tree: Tree) -> TreeItem:
+static func add_comment_child(tree: Tree, text: String) -> TreeItem:
 	var children: Array[TreeItem] = get_tree_children(tree.get_root())
 	var item: TreeItem
 	if children:
 		item = tree.create_item(children[randi() % children.size()])
 	else:
 		item = tree.create_item()
-	item.set_text(0, "u/" + NAMES[randi() % NAMES.size()] + "\n" + generate_comment_string(randi_range(5, 10) + maxi(int(randfn(20, 40)), 0)))
 	item.set_autowrap_mode(0, TextServer.AUTOWRAP_WORD)
+	item.set_text(0, text)
 	item.add_button(0, preload("res://scenes/socmed/upvote.png"))
+	return item
+
+
+static func add_random_child(tree: Tree) -> TreeItem:
+	var item := add_comment_child(tree, "u/" + NAMES[randi() % NAMES.size()] + "\n" + generate_comment_string(randi_range(5, 10) + maxi(int(randfn(20, 40)), 0)))
 	return item
 
 
