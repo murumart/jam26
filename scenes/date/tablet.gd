@@ -7,9 +7,7 @@ const Socmed1 = preload("res://scenes/socmed/socmed_1.gd")
 
 func pull_up() -> void:
 	show()
-	socmed.generate_posts()
 
 
 func put_down() -> void:
 	hide()
-	socmed.clear_posts()

@@ -2,8 +2,9 @@
 
 [ext_resource type="Script" uid="uid://b7u7cydjkyoef" path="res://scenes/date/date_ui.gd" id="1_mu2n3"]
 [ext_resource type="StyleBox" uid="uid://bdit7l32cemds" path="res://scenes/socmed/tablet_button_style.tres" id="2_1ivyu"]
+[ext_resource type="StyleBox" uid="uid://blgbqk1065jyd" path="res://theming/textbox.tres" id="2_147dt"]
 
-[node name="DateUI" type="Control" unique_id=1956037271 node_paths=PackedStringArray("text_label", "name_label", "next_dial_button", "choices_container", "tablet_button")]
+[node name="DateUI" type="Control" unique_id=1956037271 node_paths=PackedStringArray("text_label", "name_label", "next_dial_button", "choices_container", "tablet_button", "time_display", "time_progress_bar", "love_display", "love_progress_bar")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -16,6 +17,10 @@ name_label = NodePath("MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer
 next_dial_button = NodePath("MarginContainer/VBoxContainer/VBoxContainer/PanelContainer/NextDial")
 choices_container = NodePath("MarginContainer/VBoxContainer/ChoicesContainer")
 tablet_button = NodePath("MarginContainer/VBoxContainer/VBoxContainer/TabletButton")
+time_display = NodePath("MarginContainer/VBoxContainer/VBoxContainer2/HBoxContainer/TimeDisplay")
+time_progress_bar = NodePath("MarginContainer/VBoxContainer/VBoxContainer2/HBoxContainer/TimeDisplay/TimeProgressBar")
+love_display = NodePath("MarginContainer/VBoxContainer/VBoxContainer2/HBoxContainer/LoveDisplay")
+love_progress_bar = NodePath("MarginContainer/VBoxContainer/VBoxContainer2/HBoxContainer/LoveDisplay/LoveProgressBar")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=297701811]
 layout_mode = 1
@@ -33,6 +38,43 @@ theme_override_constants/margin_bottom = 4
 layout_mode = 2
 mouse_filter = 2
 alignment = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1721318005]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer2" unique_id=1120992072]
+layout_mode = 2
+
+[node name="LoveDisplay" type="HBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer2/HBoxContainer" unique_id=159617462]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer2/HBoxContainer/LoveDisplay" unique_id=562866198]
+layout_mode = 2
+text = "Love: "
+
+[node name="LoveProgressBar" type="ProgressBar" parent="MarginContainer/VBoxContainer/VBoxContainer2/HBoxContainer/LoveDisplay" unique_id=704147888]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+size_flags_vertical = 1
+show_percentage = false
+
+[node name="Fat" type="Control" parent="MarginContainer/VBoxContainer/VBoxContainer2/HBoxContainer" unique_id=912110072]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TimeDisplay" type="HBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer2/HBoxContainer" unique_id=896979118]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer2/HBoxContainer/TimeDisplay" unique_id=870058398]
+layout_mode = 2
+text = "Time left: "
+
+[node name="TimeProgressBar" type="ProgressBar" parent="MarginContainer/VBoxContainer/VBoxContainer2/HBoxContainer/TimeDisplay" unique_id=1899662570]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+size_flags_vertical = 1
+show_percentage = false
 
 [node name="ChoicesContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=202468237]
 layout_mode = 2
@@ -86,6 +128,7 @@ text = "NAME"
 [node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/VBoxContainer" unique_id=1320925012]
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
+theme_override_styles/panel = ExtResource("2_147dt")
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/VBoxContainer/PanelContainer" unique_id=1014667041]
 layout_mode = 2

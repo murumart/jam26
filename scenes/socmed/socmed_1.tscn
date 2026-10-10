@@ -87,7 +87,7 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_left = 4
 theme_override_constants/margin_top = 4
-theme_override_constants/margin_right = 4
+theme_override_constants/margin_right = 12
 theme_override_constants/margin_bottom = 4
 
 [node name="Posts" type="VBoxContainer" parent="ScrollContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer" unique_id=1769117818]

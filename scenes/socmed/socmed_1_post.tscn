@@ -3,14 +3,17 @@
 [ext_resource type="Script" uid="uid://rh0h0xp5rwce" path="res://scenes/socmed/socmed_1_post.gd" id="1_fto0k"]
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="1_mdxsp"]
 
-[node name="Post" type="PanelContainer" unique_id=1376725 node_paths=PackedStringArray("comments")]
+[node name="Post" type="PanelContainer" unique_id=1376725 node_paths=PackedStringArray("comments", "post_title_label", "poster_name_label")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_vertical = 3
 script = ExtResource("1_fto0k")
 comments = NodePath("MarginContainer/VBoxContainer/Comments")
+post_title_label = NodePath("MarginContainer/VBoxContainer/PostTitle")
+poster_name_label = NodePath("MarginContainer/VBoxContainer/TopBar/Infos/PosterNameLabel")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1017634133]
 layout_mode = 2
@@ -37,7 +40,7 @@ layout_mode = 2
 layout_mode = 2
 text = "g/AskGlepy"
 
-[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/TopBar/Infos" unique_id=1314333583]
+[node name="PosterNameLabel" type="Label" parent="MarginContainer/VBoxContainer/TopBar/Infos" unique_id=1314333583]
 layout_mode = 2
 text = "u/greenman"
 

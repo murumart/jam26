@@ -10,6 +10,7 @@ func _ready() -> void:
 	assert(post_scene)
 	assert(post_container)
 	clear_posts()
+	generate_posts()
 
 
 func clear_posts() -> void:

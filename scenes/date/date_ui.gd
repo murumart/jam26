@@ -3,12 +3,19 @@ extends Control
 ## handles text display and choice making in the dating ui
 
 signal tablet_requested
+signal dial_ended
+signal choice_chosen
 
 @export var text_label: RichTextLabel
 @export var name_label: Label
 @export var next_dial_button: Button
 @export var choices_container: Container
 @export var tablet_button: Button
+
+@export var time_display: Container
+@export var time_progress_bar: ProgressBar
+@export var love_display: Container
+@export var love_progress_bar: ProgressBar
 
 var _speaking_text: bool
 var _speaker: Dialogue.Speaker
@@ -22,6 +29,11 @@ func _ready() -> void:
 	assert(next_dial_button)
 	assert(choices_container)
 	assert(tablet_button)
+	assert(time_progress_bar)
+	assert(time_display)
+	assert(love_progress_bar)
+	assert(love_display)
+	time_display.hide()
 	var __ := next_dial_button.pressed.connect(next_or_skip)
 	var i := 0
 	for but: Button in choices_container.get_children():
@@ -49,12 +61,17 @@ func _progress_speak(delta: float) -> void:
 func _line_finished() -> void:
 	_speaking_text = false
 	if _speaking_line.choices:
-		display_choices()
+		display_choices(_speaking_line.choices)
 
 
 func _choice_chosen(c: int) -> void:
-	_current_choice = _speaking_line.choices[c]
+	_current_choice = choices_container.get_child(c).get_meta("choice")
+	choice_chosen.emit()
 	next_or_skip()
+
+
+func get_current_choice() -> String:
+	return _current_choice
 
 
 ## sets name in the character name label
@@ -64,17 +81,19 @@ func set_name_display(n: String) -> void: name_label.text = n
 func reset_choices_display() -> void:
 	for but: Button in choices_container.get_children():
 		but.hide()
+		but.disabled = true
 
 
-func display_choices() -> void:
-	assert(_speaking_line)
+func display_choices(choices: PackedStringArray) -> void:
 	reset_choices_display()
 	var i := 0
-	assert(_speaking_line.choices.size() <= 5, "too many choices cant fit in choice buttons")
-	for choice in _speaking_line.choices:
+	assert(choices.size() <= 5, "too many choices cant fit in choice buttons")
+	for choice in choices:
 		var but := choices_container.get_child(i) as Button
 		but.text = choice
+		but.set_meta("choice", choice)
 		but.show()
+		but.disabled = "choice" != "???"
 		i += 1
 
 
@@ -119,10 +138,26 @@ func next_or_skip() -> void:
 		speak_line(next)
 		return
 	# ran out of lines
+	dial_ended.emit()
 
-
-var _tablet_open := false
 
 func _tablet_moused() -> void:
 	tablet_requested.emit()
-	_tablet_open = not _tablet_open
+
+
+func display_time(show_: bool, time: float, max_: float) -> void:
+	if not show_:
+		time_display.hide()
+		return
+	time_display.show()
+	time_progress_bar.value = time
+	time_progress_bar.max_value = max_
+
+
+func display_love(show_: bool, love: float, max_: float) -> void:
+	if not show_:
+		love_display.hide()
+		return
+	love_display.show()
+	love_progress_bar.value = love
+	love_progress_bar.max_value = max_

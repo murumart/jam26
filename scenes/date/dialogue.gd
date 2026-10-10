@@ -16,12 +16,17 @@ func al(text: String) -> Line:
 func to_speaker() -> Speaker:
 	var s := Speaker.new()
 	s._lines.assign(_lines)
-	clear()
 	return s
 
 
 func clear() -> void:
-	_lines.clear()
+	_lines = []
+
+
+func copy() -> Dialogue:
+	var dlg := Dialogue.new()
+	dlg._lines = _lines
+	return dlg
 
 
 ## line of dialogue
