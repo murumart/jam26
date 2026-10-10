@@ -36,22 +36,27 @@ alignment = 2
 layout_mode = 2
 
 [node name="ChoiceButton" type="Button" parent="MarginContainer/VBoxContainer/ChoicesContainer" unique_id=132025584]
+visible = false
 layout_mode = 2
 focus_mode = 0
 
 [node name="ChoiceButton2" type="Button" parent="MarginContainer/VBoxContainer/ChoicesContainer" unique_id=444828649]
+visible = false
 layout_mode = 2
 focus_mode = 0
 
 [node name="ChoiceButton3" type="Button" parent="MarginContainer/VBoxContainer/ChoicesContainer" unique_id=1366573195]
+visible = false
 layout_mode = 2
 focus_mode = 0
 
 [node name="ChoiceButton4" type="Button" parent="MarginContainer/VBoxContainer/ChoicesContainer" unique_id=1831778296]
+visible = false
 layout_mode = 2
 focus_mode = 0
 
 [node name="ChoiceButton5" type="Button" parent="MarginContainer/VBoxContainer/ChoicesContainer" unique_id=706523102]
+visible = false
 layout_mode = 2
 focus_mode = 0
 

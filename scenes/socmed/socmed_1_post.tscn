@@ -1,0 +1,119 @@
+[gd_scene format=3 uid="uid://bgg5kth3n8sij"]
+
+[ext_resource type="Script" uid="uid://rh0h0xp5rwce" path="res://scenes/socmed/socmed_1_post.gd" id="1_fto0k"]
+[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="1_mdxsp"]
+
+[node name="Post" type="PanelContainer" unique_id=1376725 node_paths=PackedStringArray("comments")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fto0k")
+comments = NodePath("MarginContainer/VBoxContainer/Comments")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1017634133]
+layout_mode = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=970581706]
+layout_mode = 2
+
+[node name="TopBar" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=756823707]
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="MarginContainer/VBoxContainer/TopBar" unique_id=1327063877]
+layout_mode = 2
+texture = ExtResource("1_mdxsp")
+expand_mode = 2
+
+[node name="Infos" type="VBoxContainer" parent="MarginContainer/VBoxContainer/TopBar" unique_id=264564431]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/TopBar/Infos" unique_id=1506528178]
+layout_mode = 2
+text = "g/AskGlepy"
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/TopBar/Infos" unique_id=1314333583]
+layout_mode = 2
+text = "u/greenman"
+
+[node name="PostTitle" type="Label" parent="MarginContainer/VBoxContainer" unique_id=771892135]
+layout_mode = 2
+text = "What's the most cool thing you have put in a jar?"
+
+[node name="BottomBar" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=998998396]
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="PanelContainer4" type="PanelContainer" parent="MarginContainer/VBoxContainer/BottomBar" unique_id=1941431935]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/BottomBar/PanelContainer4" unique_id=2059061075]
+layout_mode = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/BottomBar/PanelContainer4/MarginContainer" unique_id=1634634555]
+layout_mode = 2
+text = "↑"
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/BottomBar" unique_id=1511576402]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/BottomBar/PanelContainer" unique_id=618300765]
+layout_mode = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/BottomBar/PanelContainer/MarginContainer" unique_id=618340356]
+layout_mode = 2
+text = "999 upvotes"
+
+[node name="PanelContainer2" type="PanelContainer" parent="MarginContainer/VBoxContainer/BottomBar" unique_id=637784553]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/BottomBar/PanelContainer2" unique_id=147270856]
+layout_mode = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/BottomBar/PanelContainer2/MarginContainer" unique_id=1719206151]
+layout_mode = 2
+text = "999 comments"
+
+[node name="PanelContainer3" type="PanelContainer" parent="MarginContainer/VBoxContainer/BottomBar" unique_id=799810065]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/BottomBar/PanelContainer3" unique_id=1283476493]
+layout_mode = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/BottomBar/PanelContainer3/MarginContainer" unique_id=1246253294]
+layout_mode = 2
+text = "64 shares"
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer" unique_id=1443052897]
+layout_mode = 2
+
+[node name="Comments" type="Tree" parent="MarginContainer/VBoxContainer" unique_id=1099939548]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+size_flags_vertical = 3
+allow_search = false
+enable_recursive_folding = false
+enable_drag_unfolding = false
+auto_tooltip = false

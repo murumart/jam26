@@ -1,5 +1,7 @@
 extends Control
 
+## handles "low level" text display and choice making in the dating ui
+
 @export var text_label: RichTextLabel
 @export var name_label: Label
 @export var next_dial_button: Button
@@ -62,6 +64,7 @@ func display_choices() -> void:
 	assert(_speaking_line)
 	reset_choices_display()
 	var i := 0
+	assert(_speaking_line.choices.size() <= 5, "too many choices cant fit in choice buttons")
 	for choice in _speaking_line.choices:
 		var but := choices_container.get_child(i) as Button
 		but.text = choice
