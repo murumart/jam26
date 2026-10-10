@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://dpd7c6h57fh5m"]
 
 [ext_resource type="Script" uid="uid://b7u7cydjkyoef" path="res://scenes/date/date_ui.gd" id="1_mu2n3"]
+[ext_resource type="StyleBox" uid="uid://bdit7l32cemds" path="res://scenes/socmed/tablet_button_style.tres" id="2_1ivyu"]
 
-[node name="DateUI" type="Control" unique_id=1956037271 node_paths=PackedStringArray("text_label", "name_label", "next_dial_button", "choices_container")]
+[node name="DateUI" type="Control" unique_id=1956037271 node_paths=PackedStringArray("text_label", "name_label", "next_dial_button", "choices_container", "tablet_button")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -14,6 +15,7 @@ text_label = NodePath("MarginContainer/VBoxContainer/VBoxContainer/PanelContaine
 name_label = NodePath("MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/Label")
 next_dial_button = NodePath("MarginContainer/VBoxContainer/VBoxContainer/PanelContainer/NextDial")
 choices_container = NodePath("MarginContainer/VBoxContainer/ChoicesContainer")
+tablet_button = NodePath("MarginContainer/VBoxContainer/VBoxContainer/TabletButton")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=297701811]
 layout_mode = 1
@@ -100,3 +102,11 @@ text = "dfgdf"
 layout_mode = 2
 focus_mode = 0
 flat = true
+
+[node name="TabletButton" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer" unique_id=1227150852]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+focus_mode = 0
+theme_override_styles/normal = ExtResource("2_1ivyu")
+icon_alignment = 1
+expand_icon = true

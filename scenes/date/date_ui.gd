@@ -1,11 +1,14 @@
 extends Control
 
-## handles "low level" text display and choice making in the dating ui
+## handles text display and choice making in the dating ui
+
+signal tablet_requested
 
 @export var text_label: RichTextLabel
 @export var name_label: Label
 @export var next_dial_button: Button
 @export var choices_container: Container
+@export var tablet_button: Button
 
 var _speaking_text: bool
 var _speaker: Dialogue.Speaker
@@ -17,11 +20,14 @@ func _ready() -> void:
 	assert(name_label)
 	assert(text_label)
 	assert(next_dial_button)
+	assert(choices_container)
+	assert(tablet_button)
 	var __ := next_dial_button.pressed.connect(next_or_skip)
 	var i := 0
 	for but: Button in choices_container.get_children():
 		__ = but.pressed.connect(_choice_chosen.bind(i))
 		i += 1
+	__ = tablet_button.pressed.connect(_tablet_moused)
 
 
 func _process(delta: float) -> void:
@@ -89,6 +95,7 @@ func speak_dialogue(sp: Dialogue.Speaker) -> void:
 
 ## speaks text of dialogue line [param l]
 func speak_line(l: Dialogue.Line) -> void:
+	assert(l != _speaking_line)
 	_speaking_line = l
 	reset_choices_display()
 	speak_text(l.text)
@@ -112,3 +119,10 @@ func next_or_skip() -> void:
 		speak_line(next)
 		return
 	# ran out of lines
+
+
+var _tablet_open := false
+
+func _tablet_moused() -> void:
+	tablet_requested.emit()
+	_tablet_open = not _tablet_open

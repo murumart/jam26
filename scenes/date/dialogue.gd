@@ -16,8 +16,12 @@ func al(text: String) -> Line:
 func to_speaker() -> Speaker:
 	var s := Speaker.new()
 	s._lines.assign(_lines)
-	_lines.clear()
+	clear()
 	return s
+
+
+func clear() -> void:
+	_lines.clear()
 
 
 ## line of dialogue
@@ -26,6 +30,7 @@ class Line:
 	var text: String
 	var choices: PackedStringArray
 	var choice_link: String
+	var callback: Callable
 	
 	
 	## constructor
@@ -44,6 +49,11 @@ class Line:
 	func schoice_link(link: String) -> Line:
 		choice_link = link
 		return self
+	
+	
+	func scallback(c: Callable) -> Line:
+		callback = c
+		return self
 
 
 ## class to speak the dialogue line by line.
@@ -61,13 +71,6 @@ class Speaker:
 		if not l:
 			return null
 		return l
-	
-	
-	func prev() -> Dialogue.Line:
-		_ix -= 1
-		var c := current()
-		_ix += 1
-		return c
 	
 	
 	## returns the current dialogue line at cursor position (or null if there's nothing)

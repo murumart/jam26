@@ -1,18 +1,22 @@
 [gd_scene format=3 uid="uid://byrfxyqklwk8o"]
 
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="1_hemae"]
+[ext_resource type="Script" uid="uid://wmo3yp11gjfv" path="res://scenes/socmed/socmed_1.gd" id="1_i4ovm"]
 [ext_resource type="PackedScene" uid="uid://bgg5kth3n8sij" path="res://scenes/socmed/socmed_1_post.tscn" id="1_ievsa"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_fto0k"]
 font_size = 32
 
-[node name="Socmed1" type="Control" unique_id=220943824]
+[node name="Socmed1" type="Control" unique_id=220943824 node_paths=PackedStringArray("post_container")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_i4ovm")
+post_scene = ExtResource("1_ievsa")
+post_container = NodePath("ScrollContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/Posts")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=399803908]
 layout_mode = 1

@@ -11,7 +11,7 @@
 		[ ] - satisfying sound effex
 [ ] - date
   [ ] - getting a question from date
-	[ ] - open phone
+	[X] - open phone
 	[ ] - get response ideas from phone
 [ ] - dating character
   [ ] - art
