@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b0i0m85qsssp8"
-path="res://.godot/imported/TAUST.png-91f1e90cf00a8d1cec29f62513223a77.ctex"
+uid="uid://bf6ni7kvsc2me"
+path="res://.godot/imported/bg.png-2d62a71b7a963d4268ef71909fbe6b96.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/TAUST.png"
-dest_files=["res://.godot/imported/TAUST.png-91f1e90cf00a8d1cec29f62513223a77.ctex"]
+source_file="res://scenes/date/bg.png"
+dest_files=["res://.godot/imported/bg.png-2d62a71b7a963d4268ef71909fbe6b96.ctex"]
 
 [params]
 
