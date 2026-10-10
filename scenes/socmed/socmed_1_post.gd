@@ -1,6 +1,6 @@
 extends PanelContainer
 
-signal topic_remembered(topic: String)
+signal topic_remembered(topic: Topic)
 
 const NAMES: PackedStringArray = [
 	"fgjshogs", "glamps", "pixle",
@@ -70,11 +70,11 @@ func _on_comment_button_clicked(
 	if mouse_button_index != MOUSE_BUTTON_LEFT:
 		return
 	var topic: Variant = it.get_metadata(0)
-	var strtopic: String
-	if not topic or topic is not String: strtopic = it.get_text(0)
-	else: strtopic = topic
+	var realtopic: Topic
+	if not topic or topic is not Topic: realtopic = Topic.mk(it.get_text(0), "")
+	else: realtopic = topic
 	it.set_button_disabled(0, 0, true)
-	topic_remembered.emit(strtopic)
+	topic_remembered.emit(realtopic)
 
 
 static func add_comment_child(tree: Tree, text: String) -> TreeItem:

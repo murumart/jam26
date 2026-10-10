@@ -44,7 +44,7 @@ func generate_posts(dials: Array[Dialogue]) -> void:
 		p.create_comments()
 		var it := Post.add_comment_child(p.comments, "u/lydia\n" + topic.comment)
 		it.set_custom_color(0, Color.GREEN)
-		it.set_metadata(0, topic.title)
+		it.set_metadata(0, topic)
 		posts.append(p)
 	posts.shuffle()
 	for p: Post in posts:

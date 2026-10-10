@@ -31,6 +31,7 @@ var date_dials: Array[Dialogue]
 var state: State
 
 const MAX_TIME := 30000000.0
+const MAX_LOVE := 20.0
 
 var _time := 0.0
 var _love := 0.0
@@ -107,9 +108,15 @@ func _speak_dialogue(progress: int) -> void:
 	await ui.dial_ended
 
 
-func _choice_chosen(_choice: String) -> void:
+func _choice_chosen(choice: String) -> void:
 	if state != State.WAITING_FOR_RESPONSE:
 		return
+	var topic: Topic
+	for r in _remembered:
+		if r.title == choice:
+			topic = r
+	_love += topic.love
+	ui.display_love(true, _love, MAX_LOVE)
 	_input_gotten.emit()
 
 
@@ -120,7 +127,7 @@ func _get_input() -> void:
 	ui.display_choices(["???", "???", "???"])
 	state = State.WAITING_FOR_RESPONSE
 	await _input_gotten.fired
-	ui.display_love(true, _love, 20.0)
+	ui.display_love(true, _love, MAX_LOVE)
 
 
 func _tablet_requested() -> void:
@@ -132,13 +139,14 @@ func _tablet_requested() -> void:
 		tablet.pull_up()
 
 
-var _remembered: PackedStringArray = []
+var _remembered: Array[Topic] = []
 
-func _on_post_remembered(topic: String) -> void:
-	var __ := _remembered.append(topic)
+func _on_post_remembered(topic: Topic) -> void:
+	_remembered.append(topic)
 	var choices: PackedStringArray = []
+	var __: Variant
 	for i in mini(3, _remembered.size()):
-		__ = choices.append(_remembered[i])
+		__ = choices.append(_remembered[i].title)
 	while choices.size() != 3:
 		__ = choices.append("???")
 	tablet.update_found_topics(_remembered)
