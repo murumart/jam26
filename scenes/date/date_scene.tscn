@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://dhf87vcspu074"]
+
+[ext_resource type="PackedScene" uid="uid://dpd7c6h57fh5m" path="res://scenes/date/date_ui.tscn" id="1_5r68x"]
+[ext_resource type="Script" uid="uid://c3jrowqo6866d" path="res://scenes/date/date_scene.gd" id="1_48qqs"]
+[ext_resource type="Texture2D" uid="uid://bqw14oroyy0j8" path="res://scenes/date/placeholder.png" id="1_wjb7q"]
+
+[node name="DateScene" type="Control" unique_id=75435236 node_paths=PackedStringArray("ui")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_48qqs")
+ui = NodePath("DateUI")
+
+[node name="Character" type="Node2D" parent="." unique_id=1687977194]
+position = Vector2(583, 401)
+
+[node name="Sprite2D" type="Sprite2D" parent="Character" unique_id=1707786248]
+texture = ExtResource("1_wjb7q")
+
+[node name="DateUI" parent="." unique_id=1956037271 instance=ExtResource("1_5r68x")]
+layout_mode = 1
+size_flags_horizontal = 3
+size_flags_vertical = 3

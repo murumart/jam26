@@ -1,0 +1,6 @@
+[gd_resource type="Theme" format=3 uid="uid://cnboutpd1o2or"]
+
+[ext_resource type="FontFile" uid="uid://ehboq0d5hfdq" path="res://theming/Jupiteroid-Regular.ttf" id="1_fha4y"]
+
+[resource]
+default_font = ExtResource("1_fha4y")
