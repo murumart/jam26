@@ -1,6 +1,7 @@
 [ ] - dating ui
-  [ ] - text speaking
-	[ ] - text skipping
+  [X] - text speaking
+	[X] - text skipping
+	[X] - choice options
   [ ] - phone ui
 [ ] - dating character
   [ ] - art

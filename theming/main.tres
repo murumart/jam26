@@ -4,3 +4,9 @@
 
 [resource]
 default_font = ExtResource("1_fha4y")
+Control/font_sizes/font_size = 24
+RichTextLabel/font_sizes/bold_font_size = 24
+RichTextLabel/font_sizes/bold_italics_font_size = 24
+RichTextLabel/font_sizes/italics_font_size = 24
+RichTextLabel/font_sizes/mono_font_size = 24
+RichTextLabel/font_sizes/normal_font_size = 24

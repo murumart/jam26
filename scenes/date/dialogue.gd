@@ -24,6 +24,8 @@ func to_speaker() -> Speaker:
 class Line:
 	
 	var text: String
+	var choices: PackedStringArray
+	var choice_link: String
 	
 	
 	## constructor
@@ -31,6 +33,17 @@ class Line:
 		var l := Line.new()
 		l.text = txt
 		return l
+	
+	
+	func schoices(choices_: PackedStringArray) -> Line:
+		choices = choices_
+		return self
+	
+	
+	## sets the required chosen choice
+	func schoice_link(link: String) -> Line:
+		choice_link = link
+		return self
 
 
 ## class to speak the dialogue line by line.
@@ -40,18 +53,26 @@ class Speaker:
 	var _ix: int
 	
 	
-	## get current [Dialogue.Line] if it exists, null if doesnt, then move to next position.
+	## get next [Dialogue.Line] if it exists, null if doesnt.
+	## if the line has a choice link it matches with stored choice and if not skips
 	func next() -> Dialogue.Line:
 		var l := current()
+		_ix += 1
 		if not l:
 			return null
-		_ix += 1
 		return l
+	
+	
+	func prev() -> Dialogue.Line:
+		_ix -= 1
+		var c := current()
+		_ix += 1
+		return c
 	
 	
 	## returns the current dialogue line at cursor position (or null if there's nothing)
 	func current() -> Dialogue.Line:
-		if _ix >= _lines.size():
+		if _ix >= _lines.size() or _ix < 0:
 			return null
 		return _lines[_ix]
 		
@@ -59,4 +80,3 @@ class Speaker:
 	## returns index of current line
 	func get_cursor() -> int:
 		return _ix
-	
