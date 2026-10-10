@@ -1,5 +1,7 @@
 extends PanelContainer
 
+signal topic_remembered(topic: String)
+
 const NAMES: PackedStringArray = [
 	"fgjshogs", "glamps", "pixle",
 	"greenman", "glorrorbehb", "bplangnn",
@@ -12,13 +14,20 @@ const NAMES: PackedStringArray = [
 	"spangongus", 
 ]
 
+static var LYDIA_COMMENTS: Array[Topic] = [
+	Topic.mk("", "this is so true :o"),
+	Topic.mk("cats", "i did this to my cat once"),
+	Topic.mk("grandma", "lol this happened to my grandma"),
+	Topic.mk("", "THIS ^"),
+]
+
 @export var comments: Tree
 @export var post_title_label: Label
 @export var poster_name_label: Label
 
 
 func _ready() -> void:
-	pass
+	var __ := comments.button_clicked.connect(_on_comment_button_clicked)
 
 
 func _input(event: InputEvent) -> void:
@@ -33,17 +42,39 @@ func _input(event: InputEvent) -> void:
 func _process(_d: float) -> void:
 	# THIS SHIT SUCKS!!!! FUCK!!!!!!!!!!
 	comments.set_h_scroll_enabled(true)
-	comments.set_h_scroll_enabled.call_deferred(false)
+	comments.set_h_scroll_enabled.call(false)
 	comments.set_v_scroll_enabled(true)
-	comments.set_v_scroll_enabled.call_deferred(false)
-	
+	comments.set_v_scroll_enabled.call(false)
 
 
 func create_comments() -> void:
-	for i in randi_range(1, 3):
+	for i in maxi(0, int(randfn(1.0, 2.0))):
 		var __ := add_random_child(comments)
 	#var childs := get_tree_children(comments.get_root())
 	#comments.custom_minimum_size.y = maxf(120.0, .size() * 64.0)
+
+
+func undisable_buttons() -> void:
+	var it := comments.get_root()
+	while it:
+		it.set_button_disabled(0, 0, false)
+		it = it.get_next_in_tree()
+
+
+func _on_comment_button_clicked(
+		it: TreeItem,
+		_column: int,
+		_id: int,
+		mouse_button_index: int
+) -> void:
+	if mouse_button_index != MOUSE_BUTTON_LEFT:
+		return
+	var topic: Variant = it.get_metadata(0)
+	var strtopic: String
+	if not topic or topic is not String: strtopic = it.get_text(0)
+	else: strtopic = topic
+	it.set_button_disabled(0, 0, true)
+	topic_remembered.emit(strtopic)
 
 
 static func add_comment_child(tree: Tree, text: String) -> TreeItem:
@@ -60,7 +91,7 @@ static func add_comment_child(tree: Tree, text: String) -> TreeItem:
 
 
 static func add_random_child(tree: Tree) -> TreeItem:
-	var item := add_comment_child(tree, "u/" + NAMES[randi() % NAMES.size()] + "\n" + generate_comment_string(randi_range(5, 10) + maxi(int(randfn(20, 40)), 0)))
+	var item := add_comment_child(tree, "u/" + NAMES[randi() % NAMES.size()] + "\n" + generate_comment_string(randi_range(5, 10) + maxi(int(randfn(10, 20)), 0)))
 	return item
 
 
@@ -102,3 +133,19 @@ static func random_string(from_dict: Dictionary) -> String:
 		if r <= 0: break
 		ix += 1
 	return words[ix]
+
+
+class Topic:
+	var comment: String
+	var title: String
+	var post: String
+	var love: float
+	
+	
+	static func mk(ttle: String, cmnt: String, pst: String = "", lve := 0.0) -> Topic:
+		var t := Topic.new()
+		t.comment = cmnt
+		t.title = ttle
+		t.post = pst
+		t.love = lve
+		return t

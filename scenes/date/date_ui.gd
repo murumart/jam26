@@ -4,7 +4,7 @@ extends Control
 
 signal tablet_requested
 signal dial_ended
-signal choice_chosen
+signal choice_chosen(choice: String)
 
 @export var text_label: RichTextLabel
 @export var name_label: Label
@@ -66,7 +66,7 @@ func _line_finished() -> void:
 
 func _choice_chosen(c: int) -> void:
 	_current_choice = choices_container.get_child(c).get_meta("choice")
-	choice_chosen.emit()
+	choice_chosen.emit(_current_choice)
 	next_or_skip()
 
 
@@ -90,10 +90,13 @@ func display_choices(choices: PackedStringArray) -> void:
 	assert(choices.size() <= 5, "too many choices cant fit in choice buttons")
 	for choice in choices:
 		var but := choices_container.get_child(i) as Button
-		but.text = choice
+		if choice.length() > 32:
+			but.text = choice.lstrip("u/lydia\n").substr(0, 24) + "..."
+		else:
+			but.text = choice
 		but.set_meta("choice", choice)
 		but.show()
-		but.disabled = "choice" != "???"
+		but.disabled = choice == "???"
 		i += 1
 
 

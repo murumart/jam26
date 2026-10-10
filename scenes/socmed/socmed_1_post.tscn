@@ -109,6 +109,10 @@ theme_override_constants/margin_bottom = 2
 layout_mode = 2
 text = "64 shares"
 
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1495381488]
+layout_mode = 2
+text = "Comments"
+
 [node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer" unique_id=1443052897]
 layout_mode = 2
 

@@ -6,6 +6,7 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_fto0k"]
 font_size = 32
+font_color = Color(0, 1, 0, 1)
 
 [node name="Socmed1" type="Control" unique_id=220943824 node_paths=PackedStringArray("post_container")]
 layout_mode = 3
@@ -62,16 +63,16 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="ScrollContainer/PanelContainer/MarginContainer/VBoxContainer/Header/HBoxContainer/VBoxContainer" unique_id=141532567]
 layout_mode = 2
-text = "g/AskGlepy"
+text = "u/lydia"
 label_settings = SubResource("LabelSettings_fto0k")
 
 [node name="Label2" type="Label" parent="ScrollContainer/PanelContainer/MarginContainer/VBoxContainer/Header/HBoxContainer/VBoxContainer" unique_id=226195656]
 layout_mode = 2
-text = "23874523 getting Glepy Advice"
+text = "23874523 posts"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/PanelContainer/MarginContainer/VBoxContainer/Header" unique_id=780847328]
 layout_mode = 2
-text = "Your Burning Questions answered by Random Assholes"
+text = "	Hey Glepy Nation :) I'm Lyd....................................."
 fit_content = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=2035358545]
@@ -80,7 +81,7 @@ size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="ScrollContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer" unique_id=811614532]
 layout_mode = 2
-text = "    HOT posts ↓"
+text = "Posted Comments"
 
 [node name="MarginContainer" type="MarginContainer" parent="ScrollContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer" unique_id=42771633]
 layout_mode = 2

@@ -5,10 +5,11 @@
 [ext_resource type="Texture2D" uid="uid://bqw14oroyy0j8" path="res://scenes/date/placeholder.png" id="2_64sov"]
 [ext_resource type="PackedScene" uid="uid://byrfxyqklwk8o" path="res://scenes/socmed/socmed_1.tscn" id="3_o37o0"]
 
-[node name="Tablet" type="Node2D" unique_id=1736198866 node_paths=PackedStringArray("socmed")]
+[node name="Tablet" type="Node2D" unique_id=1736198866 node_paths=PackedStringArray("socmed", "found_topics_label")]
 position = Vector2(405, 304)
 script = ExtResource("1_mctm7")
 socmed = NodePath("Socmed1")
+found_topics_label = NodePath("PanelContainer/MarginContainer/VBoxContainer/FoundTopicsLabel")
 
 [node name="BackgroundImage" type="TextureRect" parent="." unique_id=1185014230]
 anchors_preset = 15
@@ -33,6 +34,30 @@ offset_right = 384.0
 offset_bottom = 287.0
 grow_horizontal = 1
 grow_vertical = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1599355364]
+offset_left = -388.0
+offset_top = -283.0
+offset_right = 385.0
+offset_bottom = -164.0
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=1791623626]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer" unique_id=1374419891]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1993166508]
+layout_mode = 2
+text = "Find what answer Lydia would like in this conversation! (press CLOUD button)"
+
+[node name="FoundTopicsLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1544078904]
+layout_mode = 2
+text = "0/3 potential topics found"
 
 [node name="Frame" type="Sprite2D" parent="." unique_id=47716731]
 scale = Vector2(1.0555555, 1.0555556)

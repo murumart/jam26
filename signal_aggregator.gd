@@ -11,3 +11,7 @@ func connect_to(s: Signal) -> void:
 func disconnect_from(s: Signal) -> void:
 	assert(s.is_connected(fired.emit))
 	s.disconnect(fired.emit)
+
+
+func emit() -> void:
+	fired.emit()
