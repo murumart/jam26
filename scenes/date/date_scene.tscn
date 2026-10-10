@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dpd7c6h57fh5m" path="res://scenes/date/date_ui.tscn" id="1_5r68x"]
 [ext_resource type="Script" uid="uid://c3jrowqo6866d" path="res://scenes/date/date_scene.gd" id="1_48qqs"]
 [ext_resource type="Texture2D" uid="uid://bqw14oroyy0j8" path="res://scenes/date/placeholder.png" id="1_wjb7q"]
+[ext_resource type="Resource" uid="uid://dncksrk2d6ayf" path="res://resources/game_resources.tres" id="2_5qce7"]
 [ext_resource type="PackedScene" uid="uid://cvgkroqartpom" path="res://scenes/date/tablet.tscn" id="4_kc4fe"]
 
 [node name="DateScene" type="Control" unique_id=75435236 node_paths=PackedStringArray("ui", "tablet")]
@@ -15,6 +16,7 @@ grow_vertical = 2
 script = ExtResource("1_48qqs")
 ui = NodePath("DateUI")
 tablet = NodePath("Tablet")
+game = ExtResource("2_5qce7")
 
 [node name="Character" type="Node2D" parent="." unique_id=1687977194]
 position = Vector2(583, 401)

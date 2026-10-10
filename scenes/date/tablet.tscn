@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://btsuo0sh1cqf5" path="res://scenes/date/tablet_frame.png" id="1_ye62t"]
 [ext_resource type="Texture2D" uid="uid://bqw14oroyy0j8" path="res://scenes/date/placeholder.png" id="2_64sov"]
 [ext_resource type="PackedScene" uid="uid://byrfxyqklwk8o" path="res://scenes/socmed/socmed_1.tscn" id="3_o37o0"]
+[ext_resource type="Resource" uid="uid://dncksrk2d6ayf" path="res://resources/game_resources.tres" id="4_3s3bx"]
 
 [node name="Tablet" type="Node2D" unique_id=1736198866 node_paths=PackedStringArray("socmed", "found_topics_label")]
 position = Vector2(405, 304)
@@ -34,6 +35,7 @@ offset_right = 384.0
 offset_bottom = 287.0
 grow_horizontal = 1
 grow_vertical = 1
+game_resources = ExtResource("4_3s3bx")
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=1599355364]
 offset_left = -388.0

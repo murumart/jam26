@@ -4,7 +4,7 @@ signal ran_out_of_time
 
 const DateUI = preload("res://scenes/date/date_ui.gd")
 const Tablet = preload("res://scenes/date/tablet.gd")
-const SignalAggregator = preload("res://signal_aggregator.gd")
+const SignalAggregator = preload("res://resources/scripts/signal_aggregator.gd")
 const Topic = preload("res://scenes/socmed/socmed_1_post.gd").Topic
 
 enum State {
@@ -14,25 +14,15 @@ enum State {
 
 @export var ui: DateUI
 @export var tablet: Tablet
-
-"""
-the date screen loop.. what is itõ
-
-- read dialogue
-- get asked input
-- open tablet and start scrolling
-- time limit starts ticking down
-- click on "use" button to get input for choices
-- choose choice, get a response (+ hearts)
-- move to next topic
-"""
+@export var game: GameResources
 
 var date_dials: Array[Dialogue]
 var state: State
 
-const MAX_TIME := 30000000.0
+const MAX_TIME := 45.0
 const MAX_LOVE := 20.0
 
+var _current_topic: Topic
 var _time := 0.0
 var _love := 0.0
 
@@ -45,7 +35,6 @@ func _ready() -> void:
 	var __: Variant = ui.tablet_requested.connect(_tablet_requested)
 	__ = ui.choice_chosen.connect(_choice_chosen)
 	_input_gotten.connect_to(ran_out_of_time)
-	_setup_dialogue()
 	__ = tablet.socmed.post_topic_remembered.connect(_on_post_remembered)
 	tablet.socmed.generate_posts(date_dials)
 	_game_loop()
@@ -65,47 +54,31 @@ func _process(delta: float) -> void:
 
 func _game_loop() -> void:
 	var date_progress := 0
-	while true:
-		await _speak_dialogue(date_progress)
+	while 2:
+		var over := await _speak_dialogue(date_progress)
+		if over: break
 		date_progress += 1
 		await _get_input()
+	# game over
+	if _love >= 20.0:
+		UI.swipe_transition(load("res://scenes/date/over_good.tscn") as PackedScene)
+	else:
+		UI.swipe_transition(load("res://scenes/date/over_bad.tscn") as PackedScene)
 
 
-func _setup_dialogue() -> void:
-	var dlg := Dialogue.new()
-	var __: Variant
-	
-	dlg.clear()
-	__ = dlg.al("hello everyobyd my name is xyz and welcometo our date")
-	__ = dlg.al("today we are dating")
-	__ = dlg.al("we are on the date")
-	__ = dlg.al("lets takl about some fun stuff. you know i like this animal..?")
-	dlg.meta = Topic.mk("cats", "i love the DOG", "what's your favourite animals?", 2.0)
-	date_dials.push_back(dlg.copy())
-	
-	dlg.clear()
-	__ = dlg.al("alllalalalalallaala")
-	__ = dlg.al("lallallaalla")
-	__ = dlg.al("aaaaaaaaaaaahhhhhhhh AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH")
-	dlg.meta = Topic.mk("[scream really loudly]", "AUUUUUAH UA HHHAAAAAAAAAAAAAAAAAAUUHHHHH", "AHHHHHHHHHAHHHHHHHHHHHHHHHHHHHHHHHHH", 4.0)
-	date_dials.push_back(dlg.copy())
-	
-	dlg.clear()
-	__ = dlg.al("1234")
-	__ = dlg.al("1233445")
-	__ = dlg.al("098760987")
-	dlg.meta = Topic.mk("start speaking number station", "283o4237", "bleep blooply?", 1.0)
-	date_dials.push_back(dlg.copy())
-
-
-func _speak_dialogue(progress: int) -> void:
+func _speak_dialogue(progress: int) -> bool:
 	state = State.TALKING
 	tablet.put_down()
 	ui.display_time(false, 0.0, 0.0)
 	tablet.socmed.on_open()
-	var dlg := date_dials[progress]
+	if progress >= game.date.size():
+		return true
+	var convo := game.date[progress]
+	var dlg := Dialogue.from(convo.lines)
 	ui.speak_dialogue(dlg.to_speaker())
+	_current_topic = convo.topic.to_topic()
 	await ui.dial_ended
+	return false
 
 
 func _choice_chosen(choice: String) -> void:
@@ -115,7 +88,13 @@ func _choice_chosen(choice: String) -> void:
 	for r in _remembered:
 		if r.title == choice:
 			topic = r
-	_love += topic.love
+	if topic:
+		if topic.love > 0:
+			if topic == _current_topic:
+				_love += topic.love * 0.75
+			_love += topic.love * 0.25
+		else:
+			_love += topic.love
 	ui.display_love(true, _love, MAX_LOVE)
 	_input_gotten.emit()
 
@@ -146,7 +125,11 @@ func _on_post_remembered(topic: Topic) -> void:
 	var choices: PackedStringArray = []
 	var __: Variant
 	for i in mini(3, _remembered.size()):
-		__ = choices.append(_remembered[i].title)
+		__ = choices.append(
+			_remembered[i].title
+				if _remembered[i].title
+				else _remembered[i].comment
+		)
 	while choices.size() != 3:
 		__ = choices.append("???")
 	tablet.update_found_topics(_remembered)

@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://6ac3ubsmjkje"]
+
+[node name="OverGood" type="Control" unique_id=1111995844]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="." unique_id=1466430294]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 28.0
+text = "you win"

@@ -91,7 +91,10 @@ func display_choices(choices: PackedStringArray) -> void:
 	for choice in choices:
 		var but := choices_container.get_child(i) as Button
 		if choice.length() > 32:
-			but.text = choice.lstrip("u/lydia\n").substr(0, 24) + "..."
+			var pc := choice
+			if "\n" in pc:
+				pc = pc.get_slice("\n", 2)
+			but.text = pc.substr(0, 24) + "..."
 		else:
 			but.text = choice
 		but.set_meta("choice", choice)

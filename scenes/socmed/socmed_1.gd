@@ -7,6 +7,8 @@ const Post = preload("res://scenes/socmed/socmed_1_post.gd")
 @export var post_scene: PackedScene
 @export var post_container: Container
 
+@export var game_resources: GameResources
+
 
 func _ready() -> void:
 	assert(post_scene)
@@ -31,10 +33,10 @@ func generate_posts(dials: Array[Dialogue]) -> void:
 		p.poster_name_label.text = "u/" + Post.NAMES[randi() % Post.NAMES.size()]
 		p.create_comments()
 		posts.append(p)
-		var comment := Post.LYDIA_COMMENTS[randi() % Post.LYDIA_COMMENTS.size()]
+		var comment := game_resources.random_lydia_responses[randi() % game_resources.random_lydia_responses.size()].to_topic()
 		var chld := Post.add_comment_child(p.comments, "u/lydia\n" + comment.comment)
 		chld.set_custom_color(0, Color.GREEN)
-		chld.set_metadata(0, comment.title)
+		chld.set_metadata(0, comment)
 	for dlg in dials:
 		assert(dlg.meta, "need topic question")
 		var p: Post = post_scene.instantiate()

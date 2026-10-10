@@ -7,6 +7,13 @@ var _lines: Array[Line]
 var meta: Variant
 
 
+static func from(lines: PackedStringArray) -> Dialogue:
+	var dlg := Dialogue.new()
+	for l in lines:
+		var __ := dlg.al(l)
+	return dlg
+
+
 ## adds a line and returns it (to adjust it further)
 func al(text: String) -> Line:
 	var line := Line.mk(text)

@@ -14,13 +14,6 @@ const NAMES: PackedStringArray = [
 	"spangongus", 
 ]
 
-static var LYDIA_COMMENTS: Array[Topic] = [
-	Topic.mk("", "this is so true :o"),
-	Topic.mk("cats", "i did this to my cat once"),
-	Topic.mk("grandma", "lol this happened to my grandma"),
-	Topic.mk("", "THIS ^"),
-]
-
 @export var comments: Tree
 @export var post_title_label: Label
 @export var poster_name_label: Label
@@ -86,7 +79,7 @@ static func add_comment_child(tree: Tree, text: String) -> TreeItem:
 		item = tree.create_item()
 	item.set_autowrap_mode(0, TextServer.AUTOWRAP_WORD)
 	item.set_text(0, text)
-	item.add_button(0, preload("res://scenes/socmed/upvote.png"))
+	item.add_button(0, preload("res://scenes/socmed/save.png"))
 	return item
 
 
@@ -140,12 +133,14 @@ class Topic:
 	var title: String
 	var post: String
 	var love: float
+	var image: Texture
 	
 	
-	static func mk(ttle: String, cmnt: String, pst: String = "", lve := 0.0) -> Topic:
+	static func mk(ttle: String, cmnt: String, pst: String = "", lve := 0.0, img: Texture = null) -> Topic:
 		var t := Topic.new()
 		t.comment = cmnt
 		t.title = ttle
 		t.post = pst
 		t.love = lve
+		t.image = img
 		return t
