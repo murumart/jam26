@@ -5,12 +5,23 @@
 [ext_resource type="Texture2D" uid="uid://chb44o28vyo4m" path="res://scenes/date/tabletbg.png" id="2_64sov"]
 [ext_resource type="Texture2D" uid="uid://dqooau2se460r" path="res://scenes/date/tablet_ekraan.png" id="3_jdrth"]
 [ext_resource type="PackedScene" uid="uid://byrfxyqklwk8o" path="res://scenes/socmed/socmed_1.tscn" id="3_o37o0"]
+[ext_resource type="Script" uid="uid://mcckggncms7w" path="res://scenes/socmed/stupid_notif.gd" id="6_7x8s5"]
+[ext_resource type="Texture2D" uid="uid://dlvw0nhh1ujly" path="res://scenes/socmed/icon.png" id="6_jdrth"]
+[ext_resource type="Script" uid="uid://duofc25moc2sy" path="res://scenes/button_sound_adder.gd" id="8_7e73q"]
 
-[node name="Tablet" type="Node2D" unique_id=1736198866 node_paths=PackedStringArray("socmed", "found_topics_label")]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7x8s5"]
+bg_color = Color(0.20784314, 0.20784314, 0.3254902, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+
+[node name="Tablet" type="Node2D" unique_id=1736198866 node_paths=PackedStringArray("socmed", "found_topics_label", "notif")]
 position = Vector2(405, 304)
 script = ExtResource("1_mctm7")
 socmed = NodePath("Frame2/Socmed1")
 found_topics_label = NodePath("Frame2/PanelContainer/MarginContainer/VBoxContainer/FoundTopicsLabel")
+notif = NodePath("Frame2/StupidNotif")
 
 [node name="Frame" type="Sprite2D" parent="." unique_id=47716731]
 position = Vector2(0, -265)
@@ -42,9 +53,10 @@ anchor_bottom = 0.0
 offset_left = -329.0
 offset_top = -180.0
 offset_right = 336.0
-offset_bottom = 308.0
+offset_bottom = 270.0
 grow_horizontal = 1
 grow_vertical = 1
+horizontal_scroll_mode = 0
 
 [node name="PanelContainer" type="PanelContainer" parent="Frame2" unique_id=1599355364]
 offset_left = -330.0
@@ -71,3 +83,66 @@ fit_content = true
 [node name="FoundTopicsLabel" type="Label" parent="Frame2/PanelContainer/MarginContainer/VBoxContainer" unique_id=1544078904]
 layout_mode = 2
 text = "0/3 potential topics found"
+
+[node name="StupidNotif" type="PanelContainer" parent="Frame2" unique_id=1516469279]
+offset_left = -334.0
+offset_top = -182.0
+offset_right = 334.0
+offset_bottom = -63.0
+pivot_offset = Vector2(335, 2)
+theme_override_styles/panel = SubResource("StyleBoxFlat_7x8s5")
+script = ExtResource("6_7x8s5")
+
+[node name="MarginContainer" type="MarginContainer" parent="Frame2/StupidNotif" unique_id=2017487146]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Frame2/StupidNotif/MarginContainer" unique_id=1298553678]
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="Frame2/StupidNotif/MarginContainer/HBoxContainer" unique_id=647570396]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("6_jdrth")
+expand_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Frame2/StupidNotif/MarginContainer/HBoxContainer" unique_id=481129477]
+layout_mode = 2
+
+[node name="NotifTitle" type="Label" parent="Frame2/StupidNotif/MarginContainer/HBoxContainer/VBoxContainer" unique_id=900408898]
+unique_name_in_owner = true
+custom_maximum_size = Vector2(450, -1)
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+text = "NOTIFICATION"
+autowrap_mode = 2
+
+[node name="NotifText" type="Label" parent="Frame2/StupidNotif/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1031335220]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(450, 0)
+layout_mode = 2
+text = "NOTIFICATION"
+autowrap_mode = 2
+
+[node name="Fat" type="Control" parent="Frame2/StupidNotif/MarginContainer/HBoxContainer" unique_id=197516222]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Frame2/StupidNotif/MarginContainer/HBoxContainer" unique_id=900366705]
+layout_mode = 2
+
+[node name="CloseButton" type="Button" parent="Frame2/StupidNotif/MarginContainer/HBoxContainer/VBoxContainer2" unique_id=884095954]
+unique_name_in_owner = true
+layout_mode = 2
+text = "STOP"
+
+[node name="NotifTimer" type="Timer" parent="." unique_id=249135173]
+wait_time = 8.0
+autostart = true
+
+[node name="ButtonSoundAdder" type="Node" parent="." unique_id=1735524813]
+script = ExtResource("8_7e73q")
+metadata/_custom_type_script = "uid://duofc25moc2sy"

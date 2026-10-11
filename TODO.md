@@ -24,3 +24,7 @@
 [ ] - main menu
 [ ] - ending good
 [ ] - ending bad
+
+FIX ME
+[X] - no image when setting lydia topic post
+[X] - dont gen more of same lydia post with title

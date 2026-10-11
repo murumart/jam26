@@ -149,7 +149,7 @@ class Topic:
 	var post: String
 	var comment: String
 	var love: float
-	var image: Texture
+	var image: Texture2D
 	
 	
 	static func mk(ttle: String, cmnt: String, pst: String = "", lve := 0.0, img: Texture = null) -> Topic:
