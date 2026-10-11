@@ -104,8 +104,8 @@ metadata/_custom_type_script = "uid://wfcy3lai43xm"
 
 [sub_resource type="Resource" id="Resource_bv22e"]
 script = ExtResource("1_g2or3")
-title = "Kratt"
-post_title = "Has anyone see or heard about the kratt that was walking near the pirogrovi park?"
+title = "troll"
+post_title = "Has anyone see or heard about the troll that was walking near the pirogrovi park?"
 her_comment = "My grandma was there yesterday i will ask her."
 metadata/_custom_type_script = "uid://wfcy3lai43xm"
 
@@ -114,7 +114,7 @@ script = ExtResource("1_g2or3")
 title = "Hiking"
 post_title = "Has anyone tried to hike mount munamägi?"
 her_comment = "To little of a hike for me but sure?!"
-love = 1.0
+love = 2.0
 metadata/_custom_type_script = "uid://wfcy3lai43xm"
 
 [sub_resource type="Resource" id="Resource_7t42j"]
@@ -148,7 +148,7 @@ title = "bald"
 post_title = "top 10+ bald celebrities  "
 her_comment = "Watch nojo stop getting ideas from here.
 Dont wanna know that ty!"
-love = -2.0
+love = 2.0
 metadata/_custom_type_script = "uid://wfcy3lai43xm"
 
 [sub_resource type="Resource" id="Resource_h12t6"]
@@ -176,6 +176,7 @@ script = ExtResource("1_g2or3")
 title = "concrete mixer"
 post_title = "Does anyone like know how to work with concrete? I like wanna recreate Valge Daam in my apartment and like, that feeeeels better. "
 her_comment = "Oh so we have concrete fans in here too???? Despise it. We should go back to wooden huts. Oh and the concrete mixers, hate them."
+love = 4.0
 metadata/_custom_type_script = "uid://wfcy3lai43xm"
 
 [sub_resource type="Resource" id="Resource_n0f25"]
@@ -183,6 +184,7 @@ script = ExtResource("1_g2or3")
 title = "Rust developer"
 post_title = " I feel like 80% of coders i know are realllly like reallly quiet."
 her_comment = "My ex was a coder he was a rust developer. I don’t think I ever heard him talk, like one. A bit too quiet for me."
+love = 0.09999999999999964
 metadata/_custom_type_script = "uid://wfcy3lai43xm"
 
 [sub_resource type="Resource" id="Resource_oa1go"]
@@ -192,8 +194,10 @@ metadata/_custom_type_script = "uid://wfcy3lai43xm"
 
 [sub_resource type="Resource" id="Resource_yt20d"]
 script = ExtResource("1_g2or3")
+title = "losing oneself"
 post_title = "Anyone else just felt like they’ve really just lost themselves?"
 her_comment = "No."
+love = 2.0
 metadata/_custom_type_script = "uid://wfcy3lai43xm"
 
 [resource]
