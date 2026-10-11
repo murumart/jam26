@@ -35,6 +35,7 @@ texture = SubResource("GradientTexture2D_64sov")
 expand_mode = 1
 
 [node name="Socmed1" parent="." unique_id=220943824 instance=ExtResource("3_o37o0")]
+custom_maximum_size = Vector2(770, 570)
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0

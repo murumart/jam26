@@ -98,6 +98,7 @@ func _choice_chosen(choice: String) -> void:
 			_love += topic.love * 0.25
 		else:
 			_love += topic.love
+	_love = maxf(_love, 0.0)
 	ui.display_love(true, _love, game.required_love)
 	state = State.TALKING
 	ui.speak_dialogue(
