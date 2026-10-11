@@ -79,18 +79,20 @@ func _process(delta: float) -> void:
 var _st := 0.0
 # progresses speech letter by letter
 func _progress_speak(delta: float) -> void:
+	if text_label.visible_ratio >= 1.0:
+		_line_finished()
+		return
 	_st += delta
 	if _st >= 0.025:
 		_st = 0.0
 		text_label.visible_characters += 1
-	if text_label.visible_ratio >= 1.0:
-		_line_finished()
 
 
 func _line_finished() -> void:
 	_speaking_text = false
 	if _speaking_line.choices:
 		display_choices(_speaking_line.choices)
+	text_label.visible_ratio = 1.0
 
 
 func _choice_chosen(c: int) -> void:
@@ -161,6 +163,7 @@ func speak_line(l: Dialogue.Line) -> void:
 func next_or_skip() -> void:
 	if _speaking_text:
 		text_label.visible_ratio = 1.0
+		_progress_speak(1.0)
 		return
 	if _speaking_line.choices and not _current_choice:
 		return
