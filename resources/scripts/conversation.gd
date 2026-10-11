@@ -11,5 +11,5 @@ class_name Conversation extends Resource
 @export_multiline var on_topic_lines: PackedStringArray
 ## lines to speak if the player's response is off topic,  before the next conversation
 @export_multiline var off_topic_lines: PackedStringArray
-## lines to speak if player runs out of time
+## lines to speak if player runs out of time	
 @export_multiline var out_of_time_lines: PackedStringArray

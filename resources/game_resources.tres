@@ -22,6 +22,7 @@ lines = PackedStringArray("Hiiii…… Nice seeing you in the flesh. I’ve been
 topic = SubResource("Resource_yxbnc")
 on_topic_lines = PackedStringArray("Cats are my favorite!")
 off_topic_lines = PackedStringArray("Oh! Okey!")
+out_of_time_lines = PackedStringArray("Ummmmm... no furry?")
 metadata/_custom_type_script = "uid://b5j37h6jqkfhq"
 
 [sub_resource type="Resource" id="Resource_jm3mc"]

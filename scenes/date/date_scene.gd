@@ -118,6 +118,9 @@ func _get_input() -> void:
 	ui.tabletable = true
 	await _input_gotten.fired
 	ui.display_love(true, _love, game.required_love)
+	if _time <= 0.0 and _current_convo.out_of_time_lines:
+		ui.speak_dialogue(Dialogue.from(_current_convo.out_of_time_lines).to_speaker())
+		await ui.dial_ended
 
 
 func _tablet_requested() -> void:

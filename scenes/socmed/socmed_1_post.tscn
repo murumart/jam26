@@ -10,6 +10,7 @@
 bg_color = Color(0, 0, 0, 1)
 
 [node name="Post" type="PanelContainer" unique_id=1376725 node_paths=PackedStringArray("comments", "post_title_label", "poster_name_label", "image", "ad_mode_hide")]
+custom_maximum_size = Vector2(670, -1)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -54,7 +55,8 @@ text = "u/greenman"
 
 [node name="PostTitle" type="Label" parent="MarginContainer/VBoxContainer" unique_id=771892135]
 layout_mode = 2
-text = "What's the most cool thing you have put in a jar?"
+text = "What's the most cool thing you have put in a jar? AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa"
+autowrap_mode = 2
 
 [node name="PostImage" type="TextureRect" parent="MarginContainer/VBoxContainer" unique_id=1332649901]
 layout_mode = 2

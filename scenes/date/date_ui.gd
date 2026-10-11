@@ -114,11 +114,11 @@ func display_choices(choices: PackedStringArray) -> void:
 	assert(choices.size() <= 5, "too many choices cant fit in choice buttons")
 	for choice in choices:
 		var but := choices_container.get_child(i) as Button
-		if choice.length() > 32:
+		if choice.length() > 56:
 			var pc := choice
 			if "\n" in pc:
 				pc = pc.get_slice("\n", 2)
-			but.text = pc.substr(0, 24) + "..."
+			but.text = pc.substr(0, 56) + "..."
 		else:
 			but.text = choice
 		but.set_meta("choice", choice)
@@ -173,10 +173,6 @@ func next_or_skip() -> void:
 
 func _tablet_pressed() -> void:
 	tablet_requested.emit()
-	if tablet.visible:
-		choices_container.hide()
-	else:
-		choices_container.show()
 
 
 func display_time(show_: bool, time: float, max_: float) -> void:
