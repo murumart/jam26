@@ -2,9 +2,18 @@
 
 [ext_resource type="Script" uid="uid://dpjqp6iptntdg" path="res://scenes/date/tablet.gd" id="1_mctm7"]
 [ext_resource type="Texture2D" uid="uid://btsuo0sh1cqf5" path="res://scenes/date/tablet_frame.png" id="1_ye62t"]
-[ext_resource type="Texture2D" uid="uid://bqw14oroyy0j8" path="res://scenes/date/placeholder.png" id="2_64sov"]
 [ext_resource type="PackedScene" uid="uid://byrfxyqklwk8o" path="res://scenes/socmed/socmed_1.tscn" id="3_o37o0"]
-[ext_resource type="Resource" uid="uid://dncksrk2d6ayf" path="res://resources/game_resources.tres" id="4_3s3bx"]
+
+[sub_resource type="Gradient" id="Gradient_o37o0"]
+offsets = PackedFloat32Array(0, 0.4375, 1)
+colors = PackedColorArray(0.16078432, 0, 0.34509805, 1, 0.47433364, 0.20914426, 0.30208787, 1, 0.72156864, 0.5058824, 0.41568628, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_64sov"]
+gradient = SubResource("Gradient_o37o0")
+width = 128
+height = 128
+fill_from = Vector2(0, 1)
+fill_to = Vector2(1, 0.22649573)
 
 [node name="Tablet" type="Node2D" unique_id=1736198866 node_paths=PackedStringArray("socmed", "found_topics_label")]
 position = Vector2(405, 304)
@@ -22,7 +31,7 @@ offset_right = 402.0
 offset_bottom = 296.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_64sov")
+texture = SubResource("GradientTexture2D_64sov")
 expand_mode = 1
 
 [node name="Socmed1" parent="." unique_id=220943824 instance=ExtResource("3_o37o0")]
@@ -35,7 +44,6 @@ offset_right = 384.0
 offset_bottom = 287.0
 grow_horizontal = 1
 grow_vertical = 1
-game_resources = ExtResource("4_3s3bx")
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=1599355364]
 offset_left = -388.0
@@ -53,9 +61,11 @@ theme_override_constants/margin_bottom = 4
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer" unique_id=1374419891]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1993166508]
+[node name="Label" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=55415965]
 layout_mode = 2
-text = "Find what answer Lydia would like in this conversation! (press CLOUD button)"
+bbcode_enabled = true
+text = "Find what answer Lydia would like in this conversation! (press [img]uid://ci5vup5hhcg5w[/img] button)"
+fit_content = true
 
 [node name="FoundTopicsLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1544078904]
 layout_mode = 2

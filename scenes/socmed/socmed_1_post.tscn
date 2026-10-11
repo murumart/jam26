@@ -2,8 +2,9 @@
 
 [ext_resource type="Script" uid="uid://rh0h0xp5rwce" path="res://scenes/socmed/socmed_1_post.gd" id="1_fto0k"]
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="1_mdxsp"]
+[ext_resource type="Texture2D" uid="uid://dljd6m0hkmrmt" path="res://scenes/socmed/ad3s.png" id="3_0cgnj"]
 
-[node name="Post" type="PanelContainer" unique_id=1376725 node_paths=PackedStringArray("comments", "post_title_label", "poster_name_label")]
+[node name="Post" type="PanelContainer" unique_id=1376725 node_paths=PackedStringArray("comments", "post_title_label", "poster_name_label", "image", "ad_mode_hide")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -14,6 +15,8 @@ script = ExtResource("1_fto0k")
 comments = NodePath("MarginContainer/VBoxContainer/Comments")
 post_title_label = NodePath("MarginContainer/VBoxContainer/PostTitle")
 poster_name_label = NodePath("MarginContainer/VBoxContainer/TopBar/Infos/PosterNameLabel")
+image = NodePath("MarginContainer/VBoxContainer/PostImage")
+ad_mode_hide = [NodePath("MarginContainer/VBoxContainer/BottomBar"), NodePath("MarginContainer/VBoxContainer/Label"), NodePath("MarginContainer/VBoxContainer/HSeparator"), NodePath("MarginContainer/VBoxContainer/Comments")]
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1017634133]
 layout_mode = 2
@@ -47,6 +50,12 @@ text = "u/greenman"
 [node name="PostTitle" type="Label" parent="MarginContainer/VBoxContainer" unique_id=771892135]
 layout_mode = 2
 text = "What's the most cool thing you have put in a jar?"
+
+[node name="PostImage" type="TextureRect" parent="MarginContainer/VBoxContainer" unique_id=1332649901]
+layout_mode = 2
+texture = ExtResource("3_0cgnj")
+expand_mode = 5
+stretch_mode = 6
 
 [node name="BottomBar" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=998998396]
 layout_mode = 2

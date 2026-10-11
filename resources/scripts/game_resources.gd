@@ -10,3 +10,6 @@ class_name GameResources extends Resource
 
 ## love required to win the game
 @export_range(1.0, 30.0) var required_love: float
+
+## images that can be used in glepy ads
+@export var ad_images: Array[Texture2D]

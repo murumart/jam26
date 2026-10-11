@@ -4,16 +4,23 @@
 	[X] - choice options
   [ ] - phone ui
 	  [X] - social media layout
-		[ ] - remember things to create choices
-		[ ] - generating random posts
-		[ ] - generating random comments
+		[X] - remember things to create choices
+		[X] - generating random posts
+		[X] - generating random comments
 		[ ] - distracting notifications
 		[ ] - satisfying sound effex
+		[ ] - lydia bio
+	  [ ] - lydia avatar
+		[ ] - glepy banner
+		[ ] - glepy user avatars
 [ ] - date
-  [ ] - getting a question from date
+  [X] - getting a question from date
 	[X] - open phone
-	[ ] - get response ideas from phone
-[ ] - dating character
-  [ ] - art
-[ ] - music
+	[X] - get response ideas from phone
+[X] - dating character
+  [X] - art
+	[ ] - changing expressions
+[X] - music
 [ ] - main menu
+[ ] - ending good
+[ ] - ending bad

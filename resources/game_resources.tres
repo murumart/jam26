@@ -1,8 +1,11 @@
 [gd_resource type="Resource" script_class="GameResources" format=3 uid="uid://dncksrk2d6ayf"]
 
+[ext_resource type="Texture2D" uid="uid://6bw65exa3ok2" path="res://scenes/socmed/ad1s.png" id="1_2yw20"]
 [ext_resource type="Script" uid="uid://wfcy3lai43xm" path="res://resources/scripts/topic_template.gd" id="1_g2or3"]
 [ext_resource type="Script" uid="uid://b5j37h6jqkfhq" path="res://resources/scripts/conversation.gd" id="1_sceeb"]
+[ext_resource type="Texture2D" uid="uid://d2p8ukp53dbr2" path="res://scenes/socmed/ad2s.png" id="2_5es67"]
 [ext_resource type="Script" uid="uid://cbyatbh2bemkl" path="res://resources/scripts/game_resources.gd" id="2_sceeb"]
+[ext_resource type="Texture2D" uid="uid://dljd6m0hkmrmt" path="res://scenes/socmed/ad3s.png" id="3_54245"]
 
 [sub_resource type="Resource" id="Resource_yxbnc"]
 script = ExtResource("1_g2or3")
@@ -64,4 +67,5 @@ metadata/_custom_type_script = "uid://wfcy3lai43xm"
 script = ExtResource("2_sceeb")
 random_lydia_responses = Array[ExtResource("1_g2or3")]([SubResource("Resource_5qce7"), SubResource("Resource_bv22e"), SubResource("Resource_71avb"), SubResource("Resource_7t42j")])
 date = Array[ExtResource("1_sceeb")]([SubResource("Resource_fto0k"), SubResource("Resource_w83kl")])
+ad_images = Array[Texture2D]([ExtResource("1_2yw20"), ExtResource("2_5es67"), ExtResource("3_54245")])
 metadata/_custom_type_script = "uid://cbyatbh2bemkl"

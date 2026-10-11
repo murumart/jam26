@@ -36,7 +36,7 @@ func _ready() -> void:
 	__ = ui.choice_chosen.connect(_choice_chosen)
 	_input_gotten.connect_to(ran_out_of_time)
 	__ = tablet.socmed.post_topic_remembered.connect(_on_post_remembered)
-	tablet.socmed.generate_posts(game.date)
+	tablet.socmed.generate_posts(game)
 	_game_loop()
 	__ = SND.play_music(preload("res://scenes/date/laul_v4.ogg"))
 	tablet.put_down()

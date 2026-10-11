@@ -17,6 +17,8 @@ const NAMES: PackedStringArray = [
 @export var comments: Tree
 @export var post_title_label: Label
 @export var poster_name_label: Label
+@export var image: TextureRect
+@export var ad_mode_hide: Array[Control]
 
 
 func _ready() -> void:
@@ -38,6 +40,11 @@ func _process(_d: float) -> void:
 	comments.set_h_scroll_enabled.call(false)
 	comments.set_v_scroll_enabled(true)
 	comments.set_v_scroll_enabled.call(false)
+
+
+func ad_mode() -> void:
+	for c in ad_mode_hide:
+		c.hide()
 
 
 func create_comments() -> void:
