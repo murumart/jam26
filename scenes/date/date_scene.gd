@@ -32,6 +32,7 @@ var _input_gotten := SignalAggregator.new()
 func _ready() -> void:
 	assert(ui)
 	assert(tablet)
+	game.validate()
 	var __: Variant = ui.tablet_requested.connect(_tablet_requested)
 	__ = ui.choice_chosen.connect(_choice_chosen)
 	_input_gotten.connect_to(ran_out_of_time)
