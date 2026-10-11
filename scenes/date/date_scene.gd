@@ -23,6 +23,7 @@ const MAX_TIME := 45.0
 const MAX_LOVE := 20.0
 
 var _current_topic: Topic
+var _current_convo: Conversation
 var _time := 0.0
 var _love := 0.0
 
@@ -76,6 +77,7 @@ func _speak_dialogue(progress: int) -> bool:
 	var convo := game.date[progress]
 	var dlg := Dialogue.from(convo.lines)
 	ui.speak_dialogue(dlg.to_speaker())
+	_current_convo = convo
 	_current_topic = convo.topic.to_topic()
 	await ui.dial_ended
 	return false
@@ -88,14 +90,22 @@ func _choice_chosen(choice: String) -> void:
 	for r in _remembered:
 		if r.title == choice:
 			topic = r
+	print(topic)
+	var right := false
 	if topic:
 		if topic.love > 0:
-			if topic == _current_topic:
+			if topic.title == _current_topic.title:
+				right = true
 				_love += topic.love * 0.75
 			_love += topic.love * 0.25
 		else:
 			_love += topic.love
 	ui.display_love(true, _love, MAX_LOVE)
+	state = State.TALKING
+	ui.speak_dialogue(
+		Dialogue.from(_current_convo.on_topic_lines if right else _current_convo.off_topic_lines)
+			.to_speaker())
+	await ui.dial_ended
 	_input_gotten.emit()
 
 

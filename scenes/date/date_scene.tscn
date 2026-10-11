@@ -2,10 +2,81 @@
 
 [ext_resource type="PackedScene" uid="uid://dpd7c6h57fh5m" path="res://scenes/date/date_ui.tscn" id="1_5r68x"]
 [ext_resource type="Script" uid="uid://c3jrowqo6866d" path="res://scenes/date/date_scene.gd" id="1_48qqs"]
-[ext_resource type="Texture2D" uid="uid://bqw14oroyy0j8" path="res://scenes/date/placeholder.png" id="1_wjb7q"]
 [ext_resource type="Resource" uid="uid://dncksrk2d6ayf" path="res://resources/game_resources.tres" id="2_5qce7"]
 [ext_resource type="Texture2D" uid="uid://bf6ni7kvsc2me" path="res://scenes/date/bg.png" id="3_bv22e"]
+[ext_resource type="Texture2D" uid="uid://bswcg15qsiuns" path="res://scenes/date/heartful.png" id="4_7t42j"]
 [ext_resource type="PackedScene" uid="uid://cvgkroqartpom" path="res://scenes/date/tablet.tscn" id="4_kc4fe"]
+[ext_resource type="PackedScene" uid="uid://0y06jfskpu65" path="res://scenes/date/character.tscn" id="5_7t42j"]
+[ext_resource type="Texture2D" uid="uid://eq0dcbocvpmi" path="res://scenes/date/laud.png" id="5_71avb"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_71avb"]
+blend_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_xos6n"]
+offsets = PackedFloat32Array(0, 0.4715447, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="Animation" id="Animation_71avb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bg2:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.39607844)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Bg2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(483, 360)]
+}
+
+[sub_resource type="Animation" id="Animation_7t42j"]
+resource_name = "n"
+length = 4.633333
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bg2:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.0240123, 2.4333334),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.39607844), Color(1, 1, 1, 0.5058824), Color(1, 1, 1, 0.39607844)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Bg2:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.8333333, 2.2, 3.4333334),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(483, 360), Vector2(473.99997, 356), Vector2(495, 369), Vector2(485.99997, 342)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uakv8"]
+_data = {
+&"RESET": SubResource("Animation_71avb"),
+&"n": SubResource("Animation_7t42j")
+}
 
 [node name="DateScene" type="Control" unique_id=75435236 node_paths=PackedStringArray("ui", "tablet")]
 layout_mode = 3
@@ -20,20 +91,54 @@ tablet = NodePath("Tablet")
 game = ExtResource("2_5qce7")
 
 [node name="Bg" type="Sprite2D" parent="." unique_id=543081562]
+modulate = Color(0.43134022, 0.43134025, 0.43134025, 1)
 position = Vector2(483, 360)
 scale = Vector2(0.771875, 1)
 texture = ExtResource("3_bv22e")
 
-[node name="Character" type="Node2D" parent="." unique_id=1687977194]
-position = Vector2(465, 369)
+[node name="Bg2" type="Sprite2D" parent="." unique_id=551214488]
+modulate = Color(1, 1, 1, 0.39607844)
+self_modulate = Color(0.42745098, 0.28235295, 0.41960785, 1)
+material = SubResource("CanvasItemMaterial_71avb")
+position = Vector2(483, 360)
+scale = Vector2(0.79546005, 1.0305556)
+texture = ExtResource("3_bv22e")
 
-[node name="Sprite2D" type="Sprite2D" parent="Character" unique_id=1707786248]
-texture = ExtResource("1_wjb7q")
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1153295346]
+position = Vector2(481.96118, 362.50494)
+scale = Vector2(0.79546005, 1.0305556)
+amount = 16
+texture = ExtResource("4_7t42j")
+lifetime = 8.0
+emission_shape = 3
+emission_rect_extents = Vector2(600, 400)
+spread = 180.0
+gravity = Vector2(0, 45)
+initial_velocity_max = 60.0
+angle_min = -45.0
+scale_amount_min = 0.1
+scale_amount_max = 0.12
+color = Color(0.47843137, 0.45882353, 1, 1)
+color_ramp = SubResource("Gradient_xos6n")
 
-[node name="DateUI" parent="." unique_id=1956037271 instance=ExtResource("1_5r68x")]
+[node name="Character" parent="." unique_id=1432597736 instance=ExtResource("5_7t42j")]
+position = Vector2(465, 393)
+
+[node name="Table" type="Sprite2D" parent="." unique_id=49599817]
+position = Vector2(471, 594)
+scale = Vector2(1.1633663, 1.1633663)
+texture = ExtResource("5_71avb")
+
+[node name="DateUI" parent="." unique_id=1956037271 node_paths=PackedStringArray("tablet") instance=ExtResource("1_5r68x")]
 layout_mode = 1
 size_flags_horizontal = 3
 size_flags_vertical = 3
+tablet = NodePath("../Tablet")
 
 [node name="Tablet" parent="." unique_id=1736198866 instance=ExtResource("4_kc4fe")]
+visible = false
 position = Vector2(480, 386)
+
+[node name="Background" type="AnimationPlayer" parent="." unique_id=2032704223]
+libraries/ = SubResource("AnimationLibrary_uakv8")
+autoplay = &"n"

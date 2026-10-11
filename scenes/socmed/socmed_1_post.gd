@@ -129,9 +129,9 @@ static func random_string(from_dict: Dictionary) -> String:
 
 
 class Topic:
-	var comment: String
 	var title: String
 	var post: String
+	var comment: String
 	var love: float
 	var image: Texture
 	
@@ -144,3 +144,7 @@ class Topic:
 		t.love = lve
 		t.image = img
 		return t
+	
+	
+	func _to_string() -> String:
+		return "Topic('%s', '%s', '%s', '%s', '%s')" % [title, post, comment, love, image]

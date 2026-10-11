@@ -2,6 +2,8 @@ extends Control
 
 ## handles text display and choice making in the dating ui
 
+const Tablet = preload("res://scenes/date/tablet.gd")
+
 signal tablet_requested
 signal dial_ended
 signal choice_chosen(choice: String)
@@ -15,7 +17,10 @@ signal choice_chosen(choice: String)
 @export var time_display: Container
 @export var time_progress_bar: ProgressBar
 @export var love_display: Container
-@export var love_progress_bar: ProgressBar
+@export var love_progress_bar: Range
+@export var love_particles: CPUParticles2D
+
+@export var tablet: Tablet
 
 var _speaking_text: bool
 var _speaker: Dialogue.Speaker
@@ -65,6 +70,7 @@ func _line_finished() -> void:
 
 
 func _choice_chosen(c: int) -> void:
+	if tablet.visible: return
 	_current_choice = choices_container.get_child(c).get_meta("choice")
 	choice_chosen.emit(_current_choice)
 	next_or_skip()
@@ -165,5 +171,10 @@ func display_love(show_: bool, love: float, max_: float) -> void:
 		love_display.hide()
 		return
 	love_display.show()
+	var last := love_progress_bar.value
 	love_progress_bar.value = love
 	love_progress_bar.max_value = max_
+	if love > last:
+		var __ := SND.play_sound(preload("res://scenes/date/heartsnd.ogg"))
+		love_particles.amount = roundi(love - last) * 8
+		love_particles.emitting = true

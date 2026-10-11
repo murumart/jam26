@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://0y06jfskpu65"]
+
+[ext_resource type="Texture2D" uid="uid://b2ogwrx8nkdr2" path="res://scenes/date/lydia1.png" id="1_780hd"]
+
+[sub_resource type="Animation" id="Animation_780hd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_54g0n"]
+resource_name = "idle"
+length = 5.733333
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.6666667, 2.12, 4.76),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1.009), Vector2(1.011, 0.979)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fctdw"]
+_data = {
+&"RESET": SubResource("Animation_780hd"),
+&"idle": SubResource("Animation_54g0n")
+}
+
+[node name="Character" type="Node2D" unique_id=1432597736]
+scale = Vector2(0.8761618, 0.8761618)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1244757610]
+texture = ExtResource("1_780hd")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=627046071]
+libraries/ = SubResource("AnimationLibrary_fctdw")
+autoplay = &"idle"

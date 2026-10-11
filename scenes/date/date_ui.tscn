@@ -2,9 +2,18 @@
 
 [ext_resource type="Script" uid="uid://b7u7cydjkyoef" path="res://scenes/date/date_ui.gd" id="1_mu2n3"]
 [ext_resource type="StyleBox" uid="uid://bdit7l32cemds" path="res://scenes/socmed/tablet_button_style.tres" id="2_1ivyu"]
-[ext_resource type="StyleBox" uid="uid://blgbqk1065jyd" path="res://theming/textbox.tres" id="2_147dt"]
+[ext_resource type="Texture2D" uid="uid://ts0k2l72o5b5" path="res://scenes/date/heartless.png" id="2_w83kl"]
+[ext_resource type="Texture2D" uid="uid://bswcg15qsiuns" path="res://scenes/date/heartful.png" id="3_jm3mc"]
+[ext_resource type="Texture2D" uid="uid://d2h8r5v5jp260" path="res://scenes/date/textbox.png" id="4_w83kl"]
+[ext_resource type="Script" uid="uid://duofc25moc2sy" path="res://scenes/button_sound_adder.gd" id="6_jm3mc"]
 
-[node name="DateUI" type="Control" unique_id=1956037271 node_paths=PackedStringArray("text_label", "name_label", "next_dial_button", "choices_container", "tablet_button", "time_display", "time_progress_bar", "love_display", "love_progress_bar")]
+[sub_resource type="Gradient" id="Gradient_xos6n"]
+offsets = PackedFloat32Array(0, 0.6869919, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.98170733, 1, 1, 1, 0)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bv22e"]
+
+[node name="DateUI" type="Control" unique_id=1956037271 node_paths=PackedStringArray("text_label", "name_label", "next_dial_button", "choices_container", "tablet_button", "time_display", "time_progress_bar", "love_display", "love_progress_bar", "love_particles")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -12,15 +21,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_mu2n3")
-text_label = NodePath("MarginContainer/VBoxContainer/VBoxContainer/PanelContainer/MarginContainer/SpeakingText")
+text_label = NodePath("MarginContainer/VBoxContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/SpeakingText")
 name_label = NodePath("MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/Label")
 next_dial_button = NodePath("MarginContainer/VBoxContainer/VBoxContainer/PanelContainer/NextDial")
 choices_container = NodePath("MarginContainer/VBoxContainer/ChoicesContainer")
-tablet_button = NodePath("MarginContainer/VBoxContainer/VBoxContainer/TabletButton")
+tablet_button = NodePath("MarginContainer/VBoxContainer/VBoxContainer/PanelContainer/Control/TabletButton")
 time_display = NodePath("MarginContainer/VBoxContainer/VBoxContainer2/HBoxContainer/TimeDisplay")
 time_progress_bar = NodePath("MarginContainer/VBoxContainer/VBoxContainer2/HBoxContainer/TimeDisplay/TimeProgressBar")
 love_display = NodePath("MarginContainer/VBoxContainer/VBoxContainer2/HBoxContainer/LoveDisplay")
 love_progress_bar = NodePath("MarginContainer/VBoxContainer/VBoxContainer2/HBoxContainer/LoveDisplay/LoveProgressBar")
+love_particles = NodePath("MarginContainer/VBoxContainer/VBoxContainer2/HBoxContainer/LoveDisplay/LoveProgressBar/CPUParticles2D")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=297701811]
 layout_mode = 1
@@ -49,15 +59,27 @@ layout_mode = 2
 [node name="LoveDisplay" type="HBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer2/HBoxContainer" unique_id=159617462]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer2/HBoxContainer/LoveDisplay" unique_id=562866198]
-layout_mode = 2
-text = "Love: "
-
-[node name="LoveProgressBar" type="ProgressBar" parent="MarginContainer/VBoxContainer/VBoxContainer2/HBoxContainer/LoveDisplay" unique_id=704147888]
+[node name="LoveProgressBar" type="TextureProgressBar" parent="MarginContainer/VBoxContainer/VBoxContainer2/HBoxContainer/LoveDisplay" unique_id=88334453]
 custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
-size_flags_vertical = 1
-show_percentage = false
+texture_under = ExtResource("2_w83kl")
+texture_progress = ExtResource("3_jm3mc")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="MarginContainer/VBoxContainer/VBoxContainer2/HBoxContainer/LoveDisplay/LoveProgressBar" unique_id=598288099]
+position = Vector2(79, 61)
+emitting = false
+amount = 16
+texture = ExtResource("3_jm3mc")
+one_shot = true
+explosiveness = 1.0
+emission_shape = 1
+emission_sphere_radius = 32.0
+direction = Vector2(0, -1)
+initial_velocity_min = 10.0
+initial_velocity_max = 800.0
+scale_amount_min = 0.1
+scale_amount_max = 0.2
+color_ramp = SubResource("Gradient_xos6n")
 
 [node name="Fat" type="Control" parent="MarginContainer/VBoxContainer/VBoxContainer2/HBoxContainer" unique_id=912110072]
 layout_mode = 2
@@ -71,9 +93,9 @@ layout_mode = 2
 text = "Time left: "
 
 [node name="TimeProgressBar" type="ProgressBar" parent="MarginContainer/VBoxContainer/VBoxContainer2/HBoxContainer/TimeDisplay" unique_id=1899662570]
-custom_minimum_size = Vector2(120, 0)
+custom_minimum_size = Vector2(120, 48)
 layout_mode = 2
-size_flags_vertical = 1
+size_flags_vertical = 4
 show_percentage = false
 
 [node name="ChoicesContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=202468237]
@@ -109,6 +131,7 @@ layout_mode = 2
 theme_override_constants/separation = 0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer" unique_id=573767719]
+visible = false
 layout_mode = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer" unique_id=1945694115]
@@ -128,28 +151,57 @@ text = "NAME"
 [node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/VBoxContainer" unique_id=1320925012]
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
-theme_override_styles/panel = ExtResource("2_147dt")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_bv22e")
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/VBoxContainer/PanelContainer" unique_id=1014667041]
 layout_mode = 2
 theme_override_constants/margin_left = 4
-theme_override_constants/margin_top = 4
+theme_override_constants/margin_top = 42
 theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 4
 
-[node name="SpeakingText" type="RichTextLabel" parent="MarginContainer/VBoxContainer/VBoxContainer/PanelContainer/MarginContainer" unique_id=1193026948]
+[node name="TextureRect" type="Sprite2D" parent="MarginContainer/VBoxContainer/VBoxContainer/PanelContainer/MarginContainer" unique_id=1892327414]
+position = Vector2(413, 103)
+scale = Vector2(1.2592591, 1.2592592)
+texture = ExtResource("4_w83kl")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer/PanelContainer/MarginContainer" unique_id=915714030]
 layout_mode = 2
+
+[node name="SpeakingText" type="RichTextLabel" parent="MarginContainer/VBoxContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer" unique_id=1193026948]
+layout_mode = 2
+size_flags_horizontal = 3
 text = "dfgdf"
+visible_characters_behavior = 1
+
+[node name="Fat" type="Control" parent="MarginContainer/VBoxContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer" unique_id=876563166]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.25
 
 [node name="NextDial" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer/PanelContainer" unique_id=1971579774]
 layout_mode = 2
 focus_mode = 0
 flat = true
 
-[node name="TabletButton" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer" unique_id=1227150852]
-custom_minimum_size = Vector2(0, 32)
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/VBoxContainer/PanelContainer" unique_id=1349941511]
 layout_mode = 2
+mouse_filter = 2
+
+[node name="TabletButton" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer/PanelContainer/Control" unique_id=1227150852]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 0
+offset_left = 681.0
+offset_top = 100.0
+offset_right = 945.0
+offset_bottom = 207.0
 focus_mode = 0
 theme_override_styles/normal = ExtResource("2_1ivyu")
+text = "pgone"
 icon_alignment = 1
 expand_icon = true
+
+[node name="ButtonSoundAdder" type="Node" parent="." unique_id=681359073 node_paths=PackedStringArray("exclusions")]
+script = ExtResource("6_jm3mc")
+exclusions = [NodePath("../MarginContainer/VBoxContainer/VBoxContainer/PanelContainer/NextDial")]
+metadata/_custom_type_script = "uid://duofc25moc2sy"
