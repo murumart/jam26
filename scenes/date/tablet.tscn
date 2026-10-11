@@ -1,77 +1,73 @@
 [gd_scene format=3 uid="uid://cvgkroqartpom"]
 
 [ext_resource type="Script" uid="uid://dpjqp6iptntdg" path="res://scenes/date/tablet.gd" id="1_mctm7"]
-[ext_resource type="Texture2D" uid="uid://btsuo0sh1cqf5" path="res://scenes/date/tablet_frame.png" id="1_ye62t"]
+[ext_resource type="Texture2D" uid="uid://dl1qy7sw5u8bd" path="res://scenes/date/tablet_raam.png" id="2_3s3bx"]
+[ext_resource type="Texture2D" uid="uid://chb44o28vyo4m" path="res://scenes/date/tabletbg.png" id="2_64sov"]
+[ext_resource type="Texture2D" uid="uid://dqooau2se460r" path="res://scenes/date/tablet_ekraan.png" id="3_jdrth"]
 [ext_resource type="PackedScene" uid="uid://byrfxyqklwk8o" path="res://scenes/socmed/socmed_1.tscn" id="3_o37o0"]
-
-[sub_resource type="Gradient" id="Gradient_o37o0"]
-offsets = PackedFloat32Array(0, 0.4375, 1)
-colors = PackedColorArray(0.16078432, 0, 0.34509805, 1, 0.47433364, 0.20914426, 0.30208787, 1, 0.72156864, 0.5058824, 0.41568628, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_64sov"]
-gradient = SubResource("Gradient_o37o0")
-width = 128
-height = 128
-fill_from = Vector2(0, 1)
-fill_to = Vector2(1, 0.22649573)
 
 [node name="Tablet" type="Node2D" unique_id=1736198866 node_paths=PackedStringArray("socmed", "found_topics_label")]
 position = Vector2(405, 304)
 script = ExtResource("1_mctm7")
-socmed = NodePath("Socmed1")
-found_topics_label = NodePath("PanelContainer/MarginContainer/VBoxContainer/FoundTopicsLabel")
+socmed = NodePath("Frame2/Socmed1")
+found_topics_label = NodePath("Frame2/PanelContainer/MarginContainer/VBoxContainer/FoundTopicsLabel")
 
-[node name="BackgroundImage" type="TextureRect" parent="." unique_id=1185014230]
+[node name="Frame" type="Sprite2D" parent="." unique_id=47716731]
+position = Vector2(0, -265)
+texture = ExtResource("2_3s3bx")
+
+[node name="Frame2" type="Sprite2D" parent="." unique_id=884674355]
+clip_children = 2
+position = Vector2(0, -265)
+texture = ExtResource("3_jdrth")
+
+[node name="BackgroundImage" type="TextureRect" parent="Frame2" unique_id=1185014230]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -403.0
-offset_top = -294.0
-offset_right = 402.0
-offset_bottom = 296.0
+offset_left = -378.0
+offset_top = -215.0
+offset_right = -589.0
+offset_bottom = -195.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("GradientTexture2D_64sov")
-expand_mode = 1
+mouse_filter = 2
+texture = ExtResource("2_64sov")
 
-[node name="Socmed1" parent="." unique_id=220943824 instance=ExtResource("3_o37o0")]
-custom_maximum_size = Vector2(770, 570)
+[node name="Socmed1" parent="Frame2" unique_id=220943824 instance=ExtResource("3_o37o0")]
+custom_maximum_size = Vector2(665, 488)
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = -386.0
-offset_top = -283.0
-offset_right = 384.0
-offset_bottom = 287.0
+offset_left = -329.0
+offset_top = -180.0
+offset_right = 336.0
+offset_bottom = 308.0
 grow_horizontal = 1
 grow_vertical = 1
 
-[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1599355364]
-offset_left = -388.0
-offset_top = -283.0
-offset_right = 385.0
-offset_bottom = -164.0
+[node name="PanelContainer" type="PanelContainer" parent="Frame2" unique_id=1599355364]
+offset_left = -330.0
+offset_top = -183.0
+offset_right = 338.0
+offset_bottom = -64.0
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=1791623626]
+[node name="MarginContainer" type="MarginContainer" parent="Frame2/PanelContainer" unique_id=1791623626]
 layout_mode = 2
-theme_override_constants/margin_left = 4
+theme_override_constants/margin_left = 18
 theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 4
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer" unique_id=1374419891]
+[node name="VBoxContainer" type="VBoxContainer" parent="Frame2/PanelContainer/MarginContainer" unique_id=1374419891]
 layout_mode = 2
 
-[node name="Label" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=55415965]
+[node name="Label" type="RichTextLabel" parent="Frame2/PanelContainer/MarginContainer/VBoxContainer" unique_id=55415965]
 layout_mode = 2
 bbcode_enabled = true
 text = "Find what answer Lydia would like in this conversation! (press [img]uid://ci5vup5hhcg5w[/img] button)"
 fit_content = true
 
-[node name="FoundTopicsLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1544078904]
+[node name="FoundTopicsLabel" type="Label" parent="Frame2/PanelContainer/MarginContainer/VBoxContainer" unique_id=1544078904]
 layout_mode = 2
 text = "0/3 potential topics found"
-
-[node name="Frame" type="Sprite2D" parent="." unique_id=47716731]
-scale = Vector2(1.0555555, 1.0555556)
-texture = ExtResource("1_ye62t")

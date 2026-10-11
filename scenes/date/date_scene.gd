@@ -67,6 +67,7 @@ func _game_loop() -> void:
 
 func _speak_dialogue(progress: int) -> bool:
 	state = State.TALKING
+	ui.tabletable = false
 	tablet.put_down()
 	ui.display_time(false, 0.0, 0.0)
 	tablet.socmed.enable_buttons()
@@ -114,6 +115,7 @@ func _get_input() -> void:
 	tablet.update_found_topics(_remembered)
 	ui.display_choices(["???", "???", "???"])
 	state = State.WAITING_FOR_RESPONSE
+	ui.tabletable = true
 	await _input_gotten.fired
 	ui.display_love(true, _love, game.required_love)
 

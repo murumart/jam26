@@ -7,11 +7,20 @@ const Socmed1 = preload("res://scenes/socmed/socmed_1.gd")
 
 
 func pull_up() -> void:
+	if not visible:
+		show()
+		var tw := create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
+		var ___ : Variant = tw.tween_property(self, "scale:y", 1.0, 0.33).from(0.0)
 	show()
 
 
 func put_down() -> void:
-	hide()
+	if visible:
+		var tw := create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
+		var ___ : Variant = tw.tween_property(self, "scale:y", 0.0, 0.33)
+		___ = tw.tween_callback(hide)
+	else:
+		hide()
 
 
 func update_found_topics(with: PackedStringArray) -> void:

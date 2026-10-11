@@ -13,6 +13,7 @@ signal choice_chosen(choice: String)
 @export var next_dial_button: Button
 @export var choices_container: Container
 @export var tablet_button: Button
+@export var phone_vis: Sprite2D
 
 @export var time_display: Container
 @export var time_progress_bar: ProgressBar
@@ -20,6 +21,13 @@ signal choice_chosen(choice: String)
 @export var love_progress_bar: Range
 @export var love_particles: CPUParticles2D
 
+var tabletable := false:
+	set(to):
+		tabletable = to
+		if tablet_button:
+			tablet_button.disabled = not tabletable
+		if phone_vis:
+			phone_vis.modulate = Color.DIM_GRAY if not tabletable else Color.WHITE
 @export var tablet: Tablet
 
 var _speaking_text: bool
@@ -44,7 +52,17 @@ func _ready() -> void:
 	for but: Button in choices_container.get_children():
 		__ = but.pressed.connect(_choice_chosen.bind(i))
 		i += 1
-	__ = tablet_button.pressed.connect(_tablet_moused)
+	__ = tablet_button.pressed.connect(_tablet_pressed)
+	__ = tablet_button.mouse_entered.connect(func() -> void:
+		if not tabletable: return
+		var tw := create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
+		var ___ := tw.tween_property(phone_vis, "position:y", -30, 0.50)
+	)
+	__ = tablet_button.mouse_exited.connect(func() -> void:
+		if not tabletable: return
+		var tw := create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
+		var ___ := tw.tween_property(phone_vis, "position:y", 0.0, 0.50)
+	)
 
 
 func _process(delta: float) -> void:
@@ -153,7 +171,7 @@ func next_or_skip() -> void:
 	dial_ended.emit()
 
 
-func _tablet_moused() -> void:
+func _tablet_pressed() -> void:
 	tablet_requested.emit()
 	if tablet.visible:
 		choices_container.hide()
