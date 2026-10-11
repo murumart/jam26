@@ -1,5 +1,9 @@
 [gd_scene format=3 uid="uid://6ac3ubsmjkje"]
 
+[ext_resource type="Script" uid="uid://bylp5f518ja6e" path="res://scenes/date/over_good.gd" id="1_77dsj"]
+[ext_resource type="VideoStream" uid="uid://bd3wluotnnf4d" path="res://scenes/date/movie.ogv" id="1_jtg5w"]
+[ext_resource type="AudioStream" uid="uid://d36itq4awx3vn" path="res://scenes/date/glass_break_long.ogg" id="3_oxbdu"]
+
 [node name="OverGood" type="Control" unique_id=1111995844]
 layout_mode = 3
 anchors_preset = 15
@@ -7,9 +11,37 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_77dsj")
 
 [node name="Label" type="Label" parent="." unique_id=1466430294]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 28.0
 text = "you win"
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=2144653743]
+layout_mode = 0
+offset_right = 961.0
+offset_bottom = 719.0
+stream = ExtResource("1_jtg5w")
+expand = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=123161433]
+stream = ExtResource("3_oxbdu")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=482728654]
+layout_mode = 0
+offset_left = 88.0
+offset_top = 122.0
+offset_right = 851.0
+offset_bottom = 676.0
+theme_override_constants/outline_size = 4
+text = "There are multiple ghosts in multiple machines in this video game.
+
+We all walk as ghosts in this system, this machine we all live -- society. Like Lydia, we all walk aimlessly, until we or our friends fall into a well. Or cement mixer.
+
+It's almost like the cement mixer -- spinning in a whirlwind of creation and destruction -- is haunted with the cycle of life, this inevitability of falling apart and being reconstituted.
+
+And Lydia's greatest mistake, which you haunted her with, was the machine, the wired Internet, inhabited by pieces of all of our souls, and pieces of her which were so available and so open to interpretation, creating an image of her that could be used against her.
+
+Ghost in machine."

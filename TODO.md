@@ -28,3 +28,4 @@
 FIX ME
 [X] - no image when setting lydia topic post
 [X] - dont gen more of same lydia post with title
+[ ] - love hearts burst twice sometimes

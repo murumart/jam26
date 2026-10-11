@@ -9,68 +9,89 @@
 
 [sub_resource type="Resource" id="Resource_yxbnc"]
 script = ExtResource("1_g2or3")
-title = "cats"
-post_title = "I just bought a new cat tree, but my cat doesn't even go near it! Has someone's cat also just ignored a cat tree, or why does it not like it?"
-her_comment = "Oh my goddd! My little feline companion had the same issue!! I think it takes them a while to get used to it yk."
-love = 2.0
+title = "poetry"
+post_title = "Does anyone else feel like they’re just…. In a videogame? Like a really bad one?"
+her_comment = "I think you just need a hobby :/ . I really recommend reading poetry, who knows maybe you could even try writing some :) "
+love = 6.0
 metadata/_custom_type_script = "uid://wfcy3lai43xm"
 
 [sub_resource type="Resource" id="Resource_fto0k"]
 resource_local_to_scene = true
 script = ExtResource("1_sceeb")
-lines = PackedStringArray("Hiiii…… Nice seeing you in the flesh. I’ve been looking forward to this date for a while.\n", "Kinda odd choice to bring me to has kebab but i dont mind.", "Kinda loving the vibe here not to crowded and good music.", "Sooo… how are you with animals, you have any furry creatures in your life?")
+lines = PackedStringArray("Hiiii…… Nice seeing you in the flesh. I’ve been looking forward to this date for a while. Wait that sounds a bit desperate… I just want us to have a fun time.", "Let’s just start from the beginning. So, I’m Lydia Koiduta, well you already know that. I just hope we get to know each other well tonight, or at least have a fun evening. ", "It is kinda of odd though, that you decided to bring me to Hes Kebab. Well, it is a unique first date spot. But. I did say I’m vegan. I don’t think they have a vegan menu, but, it’s fine I don’t mind. Who needs to eat on a first date anyway?", "The music here is like really good though, the vibe is just right. I love the look of it too. So… Good choice I guess…", "I guess we should get to know each other… So um, what do you like to do for fun? ")
 topic = SubResource("Resource_yxbnc")
-on_topic_lines = PackedStringArray("Cats are my favorite!")
-off_topic_lines = PackedStringArray("Oh! Okey!")
-out_of_time_lines = PackedStringArray("Ummmmm... no furry?")
+on_topic_lines = PackedStringArray("Oh! I love poetry too! It’s such a lovely poetic art form. But I do sometimes wish it had some more…. Actually nevermind.  ")
+off_topic_lines = PackedStringArray("Oh….. that’s…… unfortunate……. Yeah……")
+out_of_time_lines = PackedStringArray("Nothing comes to mind...? Okay.....")
 metadata/_custom_type_script = "uid://b5j37h6jqkfhq"
 
 [sub_resource type="Resource" id="Resource_jm3mc"]
 script = ExtResource("1_g2or3")
-title = "The Fentalist"
-post_title = "Will there be a sequel to The Fentalist?"
-her_comment = "I hope so! I really liked it. Though the original actor I think doesn't want to go back to this?"
-love = 2.0
+title = "make clocks"
+post_title = "handicraft professions or machinist which is more attractive?"
+her_comment = "People that use theyre hands to make something! Love it!
+"
+love = 8.0
 metadata/_custom_type_script = "uid://wfcy3lai43xm"
 
 [sub_resource type="Resource" id="Resource_w83kl"]
 script = ExtResource("1_sceeb")
-lines = PackedStringArray("Did you hear the news about the missing person.", "I hope they find her i had seen her in this region.", "What do you to on your freetime?")
+lines = PackedStringArray("Well, maybe….. Okay um actually my favourite poet is this one guy on Glepy, CoopiJoodik123.", "A bit of an untraditional pick, I get it. But the poems are just always so deep and poetic, like they understand the human condition, the joys of life as well as the pitfalls.", " I’ve never really seen anyone else put those feelings into words so clearly, yet beautifully.", "Like, one of my favourite poems is this:\nSlurp up the coffee\nMay our daily stimulants\nBe granted today ", "But yeah… I don’t actually use Glepy thaaaat often, totally. I don’t have a Glepy addiction, but some do and its just so sad to see. Like you’re just leaving whats little more than a ghost version of you online… In just… a big machine. Like I totally wouldn’t do that. Totally\n", "OH! But does have such cute animal pictures sometimes, like, theyre like really adorable.  Kinda like my grandma’s pet hamster….", "It did somehow manage to figure out crypto. No idea how but like, it did invest in. She became a millionaire from it investing in GitCoin before it became big. ", "She doesn’t even have to lift a finger at home now, she literally has an army of hamsters do her bidding now. I don’t know what she pays them with… They just stare into my soul sometimes like they want something…", "On the topic of work, I’m actually an aspiring writer. You might’ve heard of my play, “Säärane Mulgikapsas”, it did tour for a little while. Like, I’m working on another one right now, “Saaremaa onupoja Crypto Casino”.", "What about you? What do you do for work?")
 topic = SubResource("Resource_jm3mc")
-on_topic_lines = PackedStringArray("OOO i love The Fentalist", "I even bought some merch!")
-off_topic_lines = PackedStringArray("Mhm")
+on_topic_lines = PackedStringArray("Oooh, I\'ve never met a clockmaker before!\t", "I love all sorts of handicrafts, you know... It\'s cool you\'re up to something so meticulous.")
+off_topic_lines = PackedStringArray("Interesting... job...?")
+out_of_time_lines = PackedStringArray("...erm, the clock ticks nicely... in this establishment...?")
 metadata/_custom_type_script = "uid://b5j37h6jqkfhq"
 
 [sub_resource type="Resource" id="Resource_5es67"]
 script = ExtResource("1_g2or3")
-title = "Clockmaker"
-post_title = "Handicraft professions or machinist which is more attractive?"
-her_comment = "People who use their hands to make something! Love it!"
-love = 3.0
+title = "kratt"
+post_title = "OMG OMG OMGGG MY NECRONOMICON JUST CAMEEEEE!!!! Im like sooooo excited to finally summon the love of my life, Cthula the icon. Like I knowww so many have tried and failed but like. Im different. Im like. Better."
+her_comment = "Cthulu is like so basic, everyone is into Cthula at this point. I’m more of a Kratt type of girlie."
+love = 7.0
 metadata/_custom_type_script = "uid://wfcy3lai43xm"
 
 [sub_resource type="Resource" id="Resource_2yw20"]
 script = ExtResource("1_sceeb")
-lines = PackedStringArray("I had a crazy day at work today", "My boss was replace by AI.", "What do you do for work?")
+lines = PackedStringArray("Work is nice and all, but it just takes up so much of our time I wish I could get it all out of my brain quicker. Like imagine only having 48 hours to plan and create something. Sounds so… tiring. I would probably just trade it in for a nap.\n", "Though, napping is actually quite hard in my household. Like, my pet realllllly just adores my attention. To the degree, where… it’s kind of concerning. I love my pet, it’s so wonderful and cheerful but like. I do just wanna sleep sometimes, you know. ", "Also it likes to go thru my wallet when I’m asleep and I don’t know what thats about. I hope it doesn’t end up like the hampster. Or actually do I hope so…. I don’t know…", "Sooo… how are you with animals, you have any furry creatures in your life?")
 topic = SubResource("Resource_5es67")
-on_topic_lines = PackedStringArray("Clockmaker, wow ! I might even come to watch how you work.")
-off_topic_lines = PackedStringArray("Hey not my cup of tea.")
+on_topic_lines = PackedStringArray("OMG!! I HAVE ONE!!! THEYRE LIKE SOOOOOOOOOOO CUTEEEEEEEEEEEEEE. Kinda cheeky BUT SO CUUUTE!!!.")
+off_topic_lines = PackedStringArray("Well, everyones tastes are different. But… I guess that is technically an acceptable answer. In some way.")
 metadata/_custom_type_script = "uid://b5j37h6jqkfhq"
 
-[sub_resource type="Resource" id="Resource_tbmy8"]
+[sub_resource type="Resource" id="Resource_8otdy"]
 script = ExtResource("1_g2or3")
-title = "I don't like it when people read my mind."
-post_title = "If you could have one thing what would it be?"
-her_comment = "Magnetos Helmet"
-love = 5.0
+title = "love alberta einstein"
+post_title = "alberta einstein was sooooo overhyped i like, cant. i much prefer oskar luss."
+her_comment = "Alberta Einstein was such a girlboss how dare you!!! I loved her hairstyle too.
+I love her hairstyle."
+love = 9.0
 metadata/_custom_type_script = "uid://wfcy3lai43xm"
 
-[sub_resource type="Resource" id="Resource_oa1go"]
+[sub_resource type="Resource" id="Resource_frfyr"]
 script = ExtResource("1_sceeb")
-lines = PackedStringArray("Quite windy today but beutfil thoguh a lot of colors.", "I am interested though", "Why are you wearing that hat?")
-topic = SubResource("Resource_tbmy8")
-on_topic_lines = PackedStringArray("Weird, but I like it.\n", "I really like Marvel.\nI would really like to go watch Doomsday when it comes out.")
-off_topic_lines = PackedStringArray("Not quite my tempo.")
+lines = PackedStringArray("Like, yeah my pet is actually a KRATT. A lot of people don’t believe they’re real or think it’s like weird to have one. Like okay I had to trick Vanapagan but everyone does that? It’s like a regular Tuesday.", "Oh and like, people keep saying it’s so morally wrong to have one, but like I don’t know where theyre getting that. I dont remember Andrus Kivirähn writing that in his book. I feel like  theyre all just lying to make their chosen magic look better. ", "Like, why is everyone suddenly into eldritch horror? I don\'t get the hype. Like none of you have managed to summon Cthula, why are all of you acting like you’re gonna be the special one that does???", "It’s just… so tiring seeing it all the time. Wait what do you mean you’ve never heard about it or seen it. It’s been like everywhere for months… (It wasn’t just my algorithm right)", "Okay let’s, let’s just move on to a different topic.", "Uhm, actually. I have been wondering about something. It might be a little intrusive though.I don’t want to push you or anything, but like I have just been thinking about it this whole date…", "You bring me to this really… nice and vibey restaurant, okay it is still a Hes Kebab but still. ", "But. You’re…..", "You’re wearing a really cheap Alberta Einstein wig. And I just can’t…. Figure out why. I can’t even think of a reason to wear this to a first date.", "So I have to ask… Why are you wearing it? On this date?")
+topic = SubResource("Resource_8otdy")
+on_topic_lines = PackedStringArray(" REALLYYYYYYYY??!?!??!?!?!?!?!?! OMG I THOUGHT I WAS THE ONLY ONE!!!!!!!!! \t", "LALLALLAAALALALALALALALAAALAAAAAAAAAAAA", "I’m just so happy. :)))) ")
+off_topic_lines = PackedStringArray("……………………………………………………………… okayiguess……")
+out_of_time_lines = PackedStringArray("You ran out of eins-time...", "You\'ll lose your hair being so unattentive around me...")
+metadata/_custom_type_script = "uid://b5j37h6jqkfhq"
+
+[sub_resource type="Resource" id="Resource_yv0id"]
+script = ExtResource("1_g2or3")
+title = "ghost"
+post_title = "Anyone else have like an irrational fear of like haunting something. Everytime i dream of it i wake up i cold sweat"
+her_comment = "Same!! But especially when it comes to haunting machinery"
+love = 8.0
+metadata/_custom_type_script = "uid://wfcy3lai43xm"
+
+[sub_resource type="Resource" id="Resource_g5omh"]
+script = ExtResource("1_sceeb")
+lines = PackedStringArray("Like. I personally just really think, she was quite iconic. She contributed so much… No I don’t remember exactly what but she did. And I do quite adore her hairstyle. Sadly I can’t pull it off.", "But like… about this date. We’ve been really getting to know each other. It\'s been… nice. I was honestly expecting a much worse date when we matched. I really am glad I got to meet you. ", "Though, let’s be honest, even a bad date would’ve been better than staying at home. Like once my date literally got eaten by well. We were on a walk thru a pretty field and then they somehow fell in… I never heard them hit the bottom…\n", "I do sometimes still wonder what happened to them…  But it was better than just staying home and watching “Kättemaksu pank”.", "So I feel like to end the date. We should end off with a cuter but also deeper question.", "What is your greatest fear in life?")
+topic = SubResource("Resource_yv0id")
+on_topic_lines = PackedStringArray("Oh! Honestly I really get that. Same")
+off_topic_lines = PackedStringArray("Um... yeah... haha..!!")
+out_of_time_lines = PackedStringArray("You should fear running out of time more....")
 metadata/_custom_type_script = "uid://b5j37h6jqkfhq"
 
 [sub_resource type="Resource" id="Resource_5qce7"]
@@ -152,7 +173,7 @@ metadata/_custom_type_script = "uid://wfcy3lai43xm"
 [resource]
 script = ExtResource("2_sceeb")
 random_lydia_responses = Array[ExtResource("1_g2or3")]([SubResource("Resource_5qce7"), SubResource("Resource_bv22e"), SubResource("Resource_71avb"), SubResource("Resource_7t42j"), SubResource("Resource_kpgvy"), SubResource("Resource_b0c3f"), SubResource("Resource_54245"), SubResource("Resource_n4pyt"), SubResource("Resource_h12t6"), SubResource("Resource_wmrsj")])
-date = Array[ExtResource("1_sceeb")]([SubResource("Resource_fto0k"), SubResource("Resource_w83kl"), SubResource("Resource_2yw20"), SubResource("Resource_oa1go")])
+date = Array[ExtResource("1_sceeb")]([SubResource("Resource_fto0k"), SubResource("Resource_w83kl"), SubResource("Resource_2yw20"), SubResource("Resource_frfyr"), SubResource("Resource_g5omh")])
 required_love = 20.0
 ad_images = Array[Texture2D]([ExtResource("1_2yw20"), ExtResource("2_5es67"), ExtResource("3_54245")])
 metadata/_custom_type_script = "uid://cbyatbh2bemkl"

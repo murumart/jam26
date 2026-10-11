@@ -45,6 +45,10 @@ func play_sound(sound: AudioStream) -> SoundOptions:
 
 
 func _op_music(streamp: AudioStreamPlayer) -> void:
+	if not streamp:
+		_current_music_player.stop()
+		_current_music_player = null
+		return
 	assert(is_instance_valid(streamp))
 	_current_music_player = streamp
 	add_child(_current_music_player)
@@ -119,7 +123,7 @@ class SoundOptions:
 		if is_instance_valid(previous_player):
 			assert(previous_player is AudioStreamPlayer)
 			if _stream == previous_player.stream and _skip_same_sound:
-				return previous_player
+				return null
 			var tw := sound.create_tween()
 			tw.tween_property(previous_player, ^"volume_linear", 0.0, _fade_time)
 			tw.tween_callback(previous_player.queue_free)

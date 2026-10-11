@@ -61,8 +61,20 @@ func _game_loop() -> void:
 		await _get_input()
 	# game over
 	if _love >= game.required_love:
+		var dlg := Dialogue.new()
+		var __ := dlg.al("I really fear ending up haunting something. Like, especially a machine. I want to spend the after life reading some more books and just like… chatting around.")
+		__ = dlg.al("But to be stuck here? And just… in a goofy machine at that???? Sounds horrible. I really don’t want to end up like that.")
+		__ = dlg.al("This has been a really nice date actually. :)) So… do we wanna go to your place after this?")
+		ui.speak_dialogue(dlg.to_speaker())
+		await ui.dial_ended
 		UI.swipe_transition(load("res://scenes/date/over_good.tscn") as PackedScene)
 	else:
+		var dlg := Dialogue.new()
+		var __ := dlg.al("This date... you're interesting, but kinda stupid.")
+		__ = dlg.al("Not quite my tempo.")
+		__ = dlg.al("Let's go our separate ways. Bye.")
+		ui.speak_dialogue(dlg.to_speaker())
+		await ui.dial_ended
 		UI.swipe_transition(load("res://scenes/date/over_bad.tscn") as PackedScene)
 
 

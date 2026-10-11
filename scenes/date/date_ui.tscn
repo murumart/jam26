@@ -205,7 +205,7 @@ visible_characters_behavior = 1
 [node name="Fat" type="Control" parent="MarginContainer/VBoxContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer" unique_id=876563166]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.25
+size_flags_stretch_ratio = 0.31
 
 [node name="NextDial" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer/PanelContainer" unique_id=1971579774]
 layout_mode = 2
