@@ -14,9 +14,14 @@ func _ready() -> void:
 	clear_posts()
 
 
-func on_open() -> void:
+func enable_buttons() -> void:
 	for p: Post in post_container.get_children():
-		p.undisable_buttons()
+		p.enable_buttons()
+
+
+func disable_buttons() -> void:
+	for p: Post in post_container.get_children():
+		p.disable_buttons()
 
 
 func clear_posts() -> void:

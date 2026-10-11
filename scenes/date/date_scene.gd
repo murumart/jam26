@@ -69,7 +69,7 @@ func _speak_dialogue(progress: int) -> bool:
 	state = State.TALKING
 	tablet.put_down()
 	ui.display_time(false, 0.0, 0.0)
-	tablet.socmed.on_open()
+	tablet.socmed.enable_buttons()
 	if progress >= game.date.size():
 		return true
 	var convo := game.date[progress]
@@ -138,6 +138,8 @@ func _on_post_remembered(topic: Topic) -> void:
 				if _remembered[i].title
 				else _remembered[i].comment
 		)
+	if choices.size() >= 3:
+		tablet.socmed.disable_buttons()
 	while choices.size() != 3:
 		__ = choices.append("???")
 	tablet.update_found_topics(_remembered)

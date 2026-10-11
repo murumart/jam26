@@ -67,5 +67,6 @@ metadata/_custom_type_script = "uid://wfcy3lai43xm"
 script = ExtResource("2_sceeb")
 random_lydia_responses = Array[ExtResource("1_g2or3")]([SubResource("Resource_5qce7"), SubResource("Resource_bv22e"), SubResource("Resource_71avb"), SubResource("Resource_7t42j")])
 date = Array[ExtResource("1_sceeb")]([SubResource("Resource_fto0k"), SubResource("Resource_w83kl")])
+required_love = 20.0
 ad_images = Array[Texture2D]([ExtResource("1_2yw20"), ExtResource("2_5es67"), ExtResource("3_54245")])
 metadata/_custom_type_script = "uid://cbyatbh2bemkl"

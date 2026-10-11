@@ -18,7 +18,7 @@ func _ready() -> void:
 	for b: Button in buttons:
 		__ = b.mouse_entered.connect(func() -> void:
 			if b.is_visible_in_tree() and not b.disabled:
-				var ___ := SND.play_sound(preload("res://scenes/date/heartsnd.ogg")).volume(0.5)
+				var ___ := SND.play_sound(preload("res://scenes/socmed/menusounds-01.ogg")).volume(0.5)
 		)
 		__ = b.pressed.connect((func() -> void:
-			var ___ := SND.play_sound(preload("res://scenes/date/heartsnd.ogg")).volume(0.5)).call_deferred)
+			var ___ := SND.play_sound(preload("res://scenes/socmed/menusounds-02.ogg")).volume(0.5)).call_deferred)

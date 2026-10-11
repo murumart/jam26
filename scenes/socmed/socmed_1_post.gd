@@ -54,10 +54,17 @@ func create_comments() -> void:
 	#comments.custom_minimum_size.y = maxf(120.0, .size() * 64.0)
 
 
-func undisable_buttons() -> void:
+func enable_buttons() -> void:
 	var it := comments.get_root()
 	while it:
 		it.set_button_disabled(0, 0, false)
+		it = it.get_next_in_tree()
+
+
+func disable_buttons() -> void:
+	var it := comments.get_root()
+	while it:
+		it.set_button_disabled(0, 0, true)
 		it = it.get_next_in_tree()
 
 
@@ -69,6 +76,8 @@ func _on_comment_button_clicked(
 ) -> void:
 	if mouse_button_index != MOUSE_BUTTON_LEFT:
 		return
+	var __ := SND.play_sound(preload("res://scenes/socmed/menusounds-02.ogg")).volume(0.5)
+	__ = SND.play_sound(preload("res://scenes/date/heartsnd.ogg")).volume(0.255).pitch(2.0)
 	var topic: Variant = it.get_metadata(0)
 	var realtopic: Topic
 	if not topic or topic is not Topic: realtopic = Topic.mk(it.get_text(0), "")
