@@ -13,3 +13,14 @@ class_name GameResources extends Resource
 
 ## images that can be used in glepy ads
 @export var ad_images: Array[Texture2D]
+
+
+func validate() -> void:
+	var i := 0
+	for convo in date:
+		print("validating convo ", i)
+		assert(convo.lines, "convo needs lines")
+		assert(convo.topic, "convo needs a topic")
+		assert(convo.topic.title, "convo topic needs a line")
+		i += 1
+	print(i)

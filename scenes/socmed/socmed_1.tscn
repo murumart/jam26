@@ -1,15 +1,15 @@
 [gd_scene format=3 uid="uid://byrfxyqklwk8o"]
 
-[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="1_hemae"]
 [ext_resource type="Script" uid="uid://wmo3yp11gjfv" path="res://scenes/socmed/socmed_1.gd" id="1_i4ovm"]
 [ext_resource type="PackedScene" uid="uid://bgg5kth3n8sij" path="res://scenes/socmed/socmed_1_post.tscn" id="1_ievsa"]
+[ext_resource type="Texture2D" uid="uid://bswcg15qsiuns" path="res://scenes/date/heartful.png" id="3_qpj85"]
+[ext_resource type="Texture2D" uid="uid://3laox8gclxnw" path="res://scenes/socmed/lydia_icon.png" id="4_a4mli"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_fto0k"]
 font_size = 32
 font_color = Color(0, 1, 0, 1)
 
-[node name="Socmed1" type="Control" unique_id=220943824 node_paths=PackedStringArray("post_container")]
-layout_mode = 3
+[node name="Socmed1" type="ScrollContainer" unique_id=1118700500 node_paths=PackedStringArray("post_container")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -17,73 +17,71 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_i4ovm")
 post_scene = ExtResource("1_ievsa")
-post_container = NodePath("ScrollContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/Posts")
+post_container = NodePath("PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/Posts")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=399803908]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_vertical = 3
-horizontal_scroll_mode = 0
-
-[node name="PanelContainer" type="PanelContainer" parent="ScrollContainer" unique_id=245783712]
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=245783712]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer/PanelContainer" unique_id=664376381]
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=664376381]
 layout_mode = 2
 theme_override_constants/margin_left = 4
 theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 4
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/PanelContainer/MarginContainer" unique_id=1440847148]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer" unique_id=1440847148]
 layout_mode = 2
 
-[node name="Header" type="VBoxContainer" parent="ScrollContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=446104790]
+[node name="Header" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=446104790]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="ScrollContainer/PanelContainer/MarginContainer/VBoxContainer/Header" unique_id=1476112219]
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/Header" unique_id=1476112219]
+modulate = Color(0.23137255, 0.3647059, 1, 1)
 layout_mode = 2
-texture = ExtResource("1_hemae")
+texture = ExtResource("3_qpj85")
 stretch_mode = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/PanelContainer/MarginContainer/VBoxContainer/Header" unique_id=1158024545]
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Header" unique_id=1158024545]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="ScrollContainer/PanelContainer/MarginContainer/VBoxContainer/Header/HBoxContainer" unique_id=1984040400]
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/Header/HBoxContainer" unique_id=1984040400]
 layout_mode = 2
-texture = ExtResource("1_hemae")
+texture = ExtResource("4_a4mli")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/PanelContainer/MarginContainer/VBoxContainer/Header/HBoxContainer" unique_id=1452417935]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Header/HBoxContainer" unique_id=1452417935]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="ScrollContainer/PanelContainer/MarginContainer/VBoxContainer/Header/HBoxContainer/VBoxContainer" unique_id=141532567]
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Header/HBoxContainer/VBoxContainer" unique_id=141532567]
 layout_mode = 2
 text = "u/lydia"
 label_settings = SubResource("LabelSettings_fto0k")
 
-[node name="Label2" type="Label" parent="ScrollContainer/PanelContainer/MarginContainer/VBoxContainer/Header/HBoxContainer/VBoxContainer" unique_id=226195656]
+[node name="Label2" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Header/HBoxContainer/VBoxContainer" unique_id=226195656]
 layout_mode = 2
 text = "23874523 posts"
 
-[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/PanelContainer/MarginContainer/VBoxContainer/Header" unique_id=780847328]
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Header" unique_id=1226337761]
 layout_mode = 2
-text = "	Hey Glepy Nation :) I'm Lyd....................................."
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer/Header/MarginContainer" unique_id=780847328]
+layout_mode = 2
+text = "Hii!! I'm Lydia, just moving from place to place in search of new experiences in this big machine of ours (the world :p). Also still looking for someone to be the little ghost in the machine of my heart <3"
 fit_content = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=2035358545]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=2035358545]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="ScrollContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer" unique_id=811614532]
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer" unique_id=811614532]
 layout_mode = 2
 text = "Posted Comments"
 
-[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer" unique_id=42771633]
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer" unique_id=42771633]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_left = 4
@@ -91,22 +89,22 @@ theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 12
 theme_override_constants/margin_bottom = 4
 
-[node name="Posts" type="VBoxContainer" parent="ScrollContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer" unique_id=1769117818]
+[node name="Posts" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer" unique_id=1769117818]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Post" parent="ScrollContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/Posts" unique_id=1335674950 instance=ExtResource("1_ievsa")]
+[node name="Post" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/Posts" unique_id=1335674950 instance=ExtResource("1_ievsa")]
 layout_mode = 2
 
-[node name="Post2" parent="ScrollContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/Posts" unique_id=1020759687 instance=ExtResource("1_ievsa")]
+[node name="Post2" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/Posts" unique_id=1020759687 instance=ExtResource("1_ievsa")]
 layout_mode = 2
 
-[node name="Post3" parent="ScrollContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/Posts" unique_id=1732765486 instance=ExtResource("1_ievsa")]
+[node name="Post3" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/Posts" unique_id=1732765486 instance=ExtResource("1_ievsa")]
 layout_mode = 2
 
-[node name="Post4" parent="ScrollContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/Posts" unique_id=1063247696 instance=ExtResource("1_ievsa")]
+[node name="Post4" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/Posts" unique_id=1063247696 instance=ExtResource("1_ievsa")]
 layout_mode = 2
 
-[node name="Post5" parent="ScrollContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/Posts" unique_id=1302283033 instance=ExtResource("1_ievsa")]
+[node name="Post5" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/Posts" unique_id=1302283033 instance=ExtResource("1_ievsa")]
 layout_mode = 2

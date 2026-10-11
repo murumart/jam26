@@ -1,10 +1,16 @@
 [gd_scene format=3 uid="uid://bgg5kth3n8sij"]
 
 [ext_resource type="Script" uid="uid://rh0h0xp5rwce" path="res://scenes/socmed/socmed_1_post.gd" id="1_fto0k"]
-[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="1_mdxsp"]
+[ext_resource type="Texture2D" uid="uid://dlvw0nhh1ujly" path="res://scenes/socmed/icon.png" id="2_0cgnj"]
 [ext_resource type="Texture2D" uid="uid://dljd6m0hkmrmt" path="res://scenes/socmed/ad3s.png" id="3_0cgnj"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oa1go"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tbmy8"]
+bg_color = Color(0, 0, 0, 1)
+
 [node name="Post" type="PanelContainer" unique_id=1376725 node_paths=PackedStringArray("comments", "post_title_label", "poster_name_label", "image", "ad_mode_hide")]
+custom_maximum_size = Vector2(670, -1)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -33,7 +39,7 @@ layout_mode = 2
 
 [node name="Icon" type="TextureRect" parent="MarginContainer/VBoxContainer/TopBar" unique_id=1327063877]
 layout_mode = 2
-texture = ExtResource("1_mdxsp")
+texture = ExtResource("2_0cgnj")
 expand_mode = 2
 
 [node name="Infos" type="VBoxContainer" parent="MarginContainer/VBoxContainer/TopBar" unique_id=264564431]
@@ -49,7 +55,8 @@ text = "u/greenman"
 
 [node name="PostTitle" type="Label" parent="MarginContainer/VBoxContainer" unique_id=771892135]
 layout_mode = 2
-text = "What's the most cool thing you have put in a jar?"
+text = "What's the most cool thing you have put in a jar? AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa"
+autowrap_mode = 2
 
 [node name="PostImage" type="TextureRect" parent="MarginContainer/VBoxContainer" unique_id=1332649901]
 layout_mode = 2
@@ -74,6 +81,9 @@ theme_override_constants/margin_bottom = 2
 
 [node name="Button" type="Button" parent="MarginContainer/VBoxContainer/BottomBar/PanelContainer4/MarginContainer" unique_id=1634634555]
 layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_oa1go")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_tbmy8")
+disabled = true
 text = "↑"
 
 [node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/BottomBar" unique_id=1511576402]

@@ -1,11 +1,12 @@
 [gd_scene format=3 uid="uid://dpd7c6h57fh5m"]
 
 [ext_resource type="Script" uid="uid://b7u7cydjkyoef" path="res://scenes/date/date_ui.gd" id="1_mu2n3"]
-[ext_resource type="StyleBox" uid="uid://bdit7l32cemds" path="res://scenes/socmed/tablet_button_style.tres" id="2_1ivyu"]
 [ext_resource type="Texture2D" uid="uid://ts0k2l72o5b5" path="res://scenes/date/heartless.png" id="2_w83kl"]
 [ext_resource type="Texture2D" uid="uid://bswcg15qsiuns" path="res://scenes/date/heartful.png" id="3_jm3mc"]
+[ext_resource type="StyleBox" uid="uid://clmhcija1gh4q" path="res://theming/button.tres" id="4_ge66d"]
 [ext_resource type="Texture2D" uid="uid://d2h8r5v5jp260" path="res://scenes/date/textbox.png" id="4_w83kl"]
 [ext_resource type="Script" uid="uid://duofc25moc2sy" path="res://scenes/button_sound_adder.gd" id="6_jm3mc"]
+[ext_resource type="Texture2D" uid="uid://c1u4sm86pko8q" path="res://scenes/date/phone.png" id="7_84fik"]
 
 [sub_resource type="Gradient" id="Gradient_xos6n"]
 offsets = PackedFloat32Array(0, 0.6869919, 1)
@@ -13,7 +14,7 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.98170733, 1, 1, 1, 0)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bv22e"]
 
-[node name="DateUI" type="Control" unique_id=1956037271 node_paths=PackedStringArray("text_label", "name_label", "next_dial_button", "choices_container", "tablet_button", "time_display", "time_progress_bar", "love_display", "love_progress_bar", "love_particles")]
+[node name="DateUI" type="Control" unique_id=1956037271 node_paths=PackedStringArray("text_label", "name_label", "next_dial_button", "choices_container", "tablet_button", "phone_vis", "time_display", "time_progress_bar", "love_display", "love_progress_bar", "love_particles")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -26,6 +27,7 @@ name_label = NodePath("MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer
 next_dial_button = NodePath("MarginContainer/VBoxContainer/VBoxContainer/PanelContainer/NextDial")
 choices_container = NodePath("MarginContainer/VBoxContainer/ChoicesContainer")
 tablet_button = NodePath("MarginContainer/VBoxContainer/VBoxContainer/PanelContainer/Control/TabletButton")
+phone_vis = NodePath("MarginContainer/VBoxContainer/VBoxContainer/PanelContainer/Control/TabletButton/PhoneSprite")
 time_display = NodePath("MarginContainer/VBoxContainer/VBoxContainer2/HBoxContainer/TimeDisplay")
 time_progress_bar = NodePath("MarginContainer/VBoxContainer/VBoxContainer2/HBoxContainer/TimeDisplay/TimeProgressBar")
 love_display = NodePath("MarginContainer/VBoxContainer/VBoxContainer2/HBoxContainer/LoveDisplay")
@@ -106,26 +108,51 @@ layout_mode = 2
 visible = false
 layout_mode = 2
 focus_mode = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = ExtResource("4_ge66d")
+text = "asdasdasdasd"
 
 [node name="ChoiceButton2" type="Button" parent="MarginContainer/VBoxContainer/ChoicesContainer" unique_id=444828649]
 visible = false
 layout_mode = 2
 focus_mode = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = ExtResource("4_ge66d")
+text = "asdasdasdasd"
 
 [node name="ChoiceButton3" type="Button" parent="MarginContainer/VBoxContainer/ChoicesContainer" unique_id=1366573195]
 visible = false
 layout_mode = 2
 focus_mode = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = ExtResource("4_ge66d")
+text = "asdasdasdasd"
 
 [node name="ChoiceButton4" type="Button" parent="MarginContainer/VBoxContainer/ChoicesContainer" unique_id=1831778296]
 visible = false
 layout_mode = 2
 focus_mode = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = ExtResource("4_ge66d")
+text = "asdasdasdasd"
 
 [node name="ChoiceButton5" type="Button" parent="MarginContainer/VBoxContainer/ChoicesContainer" unique_id=706523102]
 visible = false
 layout_mode = 2
 focus_mode = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = ExtResource("4_ge66d")
+text = "asdasdasdasd"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=200237231]
 layout_mode = 2
@@ -192,15 +219,19 @@ mouse_filter = 2
 [node name="TabletButton" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer/PanelContainer/Control" unique_id=1227150852]
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 0
-offset_left = 681.0
+offset_left = 735.0
 offset_top = 100.0
-offset_right = 945.0
+offset_right = 963.0
 offset_bottom = 207.0
 focus_mode = 0
-theme_override_styles/normal = ExtResource("2_1ivyu")
 text = "pgone"
+flat = true
 icon_alignment = 1
-expand_icon = true
+
+[node name="PhoneSprite" type="Sprite2D" parent="MarginContainer/VBoxContainer/VBoxContainer/PanelContainer/Control/TabletButton" unique_id=1318284150]
+texture = ExtResource("7_84fik")
+centered = false
+offset = Vector2(6.12, -31.55)
 
 [node name="ButtonSoundAdder" type="Node" parent="." unique_id=681359073 node_paths=PackedStringArray("exclusions")]
 script = ExtResource("6_jm3mc")

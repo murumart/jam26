@@ -30,18 +30,23 @@ func clear_posts() -> void:
 
 func generate_posts(game: GameResources) -> void:
 	var posts := []
+	var did_posts := {}
 	for i in 29:
-		var p: Post = post_scene.instantiate()
 		var comment := game.random_lydia_responses[randi() % game.random_lydia_responses.size()].to_topic()
+		if comment.post and comment.post in did_posts:
+			continue
+		var p: Post = post_scene.instantiate()
 		p.post_title_label.text = (
 			Post.generate_comment_string(randi_range(2, 8)).replace_chars("\t\n\r", ord(".")).capitalize() + "?"
 				if not comment.post
 				else comment.post
 		)
 		p.poster_name_label.text = "u/" + Post.NAMES[randi() % Post.NAMES.size()]
-		p.image.texture = null
+		p.image.texture = comment.image
 		p.create_comments()
 		posts.append(p)
+		if comment.post:
+			did_posts[comment.post] = true
 		var chld := Post.add_comment_child(p.comments, "u/lydia\n" + comment.comment)
 		chld.set_custom_color(0, Color.GREEN)
 		chld.set_metadata(0, comment)

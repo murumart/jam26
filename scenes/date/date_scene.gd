@@ -32,6 +32,7 @@ var _input_gotten := SignalAggregator.new()
 func _ready() -> void:
 	assert(ui)
 	assert(tablet)
+	game.validate()
 	var __: Variant = ui.tablet_requested.connect(_tablet_requested)
 	__ = ui.choice_chosen.connect(_choice_chosen)
 	_input_gotten.connect_to(ran_out_of_time)
@@ -67,6 +68,7 @@ func _game_loop() -> void:
 
 func _speak_dialogue(progress: int) -> bool:
 	state = State.TALKING
+	ui.tabletable = false
 	tablet.put_down()
 	ui.display_time(false, 0.0, 0.0)
 	tablet.socmed.enable_buttons()
@@ -114,8 +116,12 @@ func _get_input() -> void:
 	tablet.update_found_topics(_remembered)
 	ui.display_choices(["???", "???", "???"])
 	state = State.WAITING_FOR_RESPONSE
+	ui.tabletable = true
 	await _input_gotten.fired
 	ui.display_love(true, _love, game.required_love)
+	if _time <= 0.0 and _current_convo.out_of_time_lines:
+		ui.speak_dialogue(Dialogue.from(_current_convo.out_of_time_lines).to_speaker())
+		await ui.dial_ended
 
 
 func _tablet_requested() -> void:

@@ -10,63 +10,149 @@
 [sub_resource type="Resource" id="Resource_yxbnc"]
 script = ExtResource("1_g2or3")
 title = "cats"
-post_title = "whast your favoritue animals?			"
-her_comment = "i love the CAT"
+post_title = "I just bought a new cat tree, but my cat doesn't even go near it! Has someone's cat also just ignored a cat tree, or why does it not like it?"
+her_comment = "Oh my goddd! My little feline companion had the same issue!! I think it takes them a while to get used to it yk."
 love = 2.0
 metadata/_custom_type_script = "uid://wfcy3lai43xm"
 
 [sub_resource type="Resource" id="Resource_fto0k"]
 resource_local_to_scene = true
 script = ExtResource("1_sceeb")
-lines = PackedStringArray("hello everyobyd my name is xyz and welcometo our date", "today we are dating", "we are on the date", "lets takl about some fun stuff. you know i like this animal..?")
+lines = PackedStringArray("Hiiii…… Nice seeing you in the flesh. I’ve been looking forward to this date for a while.\n", "Kinda odd choice to bring me to has kebab but i dont mind.", "Kinda loving the vibe here not to crowded and good music.", "Sooo… how are you with animals, you have any furry creatures in your life?")
 topic = SubResource("Resource_yxbnc")
-on_topic_lines = PackedStringArray("that\'s True... i like thecat")
-off_topic_lines = PackedStringArray("Fuck You")
+on_topic_lines = PackedStringArray("Cats are my favorite!")
+off_topic_lines = PackedStringArray("Oh! Okey!")
+out_of_time_lines = PackedStringArray("Ummmmm... no furry?")
 metadata/_custom_type_script = "uid://b5j37h6jqkfhq"
 
 [sub_resource type="Resource" id="Resource_jm3mc"]
 script = ExtResource("1_g2or3")
-title = "[scream really loudly]"
-post_title = "AUUUUUAH UA HHHAAAAAAAAAAAAAAAAAAUUHHHHH"
-her_comment = "AHHHHHHHHHAHHHHHHHHHHHHHHHHHHHHHHHHH"
-love = 1.0
+title = "The Fentalist"
+post_title = "Will there be a sequel to The Fentalist?"
+her_comment = "I hope so! I really liked it. Though the original actor I think doesn't want to go back to this?"
+love = 2.0
 metadata/_custom_type_script = "uid://wfcy3lai43xm"
 
 [sub_resource type="Resource" id="Resource_w83kl"]
 script = ExtResource("1_sceeb")
-lines = PackedStringArray("alllalalalalallaala", "lallallaalla", "aaaaaaaaaaaahhhhhhhh AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH")
+lines = PackedStringArray("Did you hear the news about the missing person.", "I hope they find her i had seen her in this region.", "What do you to on your freetime?")
 topic = SubResource("Resource_jm3mc")
-on_topic_lines = PackedStringArray("i love screaming", "yea")
-off_topic_lines = PackedStringArray("No. That\'s incorrect.")
+on_topic_lines = PackedStringArray("OOO i love The Fentalist", "I even bought some merch!")
+off_topic_lines = PackedStringArray("Mhm")
+metadata/_custom_type_script = "uid://b5j37h6jqkfhq"
+
+[sub_resource type="Resource" id="Resource_5es67"]
+script = ExtResource("1_g2or3")
+title = "Clockmaker"
+post_title = "Handicraft professions or machinist which is more attractive?"
+her_comment = "People who use their hands to make something! Love it!"
+love = 3.0
+metadata/_custom_type_script = "uid://wfcy3lai43xm"
+
+[sub_resource type="Resource" id="Resource_2yw20"]
+script = ExtResource("1_sceeb")
+lines = PackedStringArray("I had a crazy day at work today", "My boss was replace by AI.", "What do you do for work?")
+topic = SubResource("Resource_5es67")
+on_topic_lines = PackedStringArray("Clockmaker, wow ! I might even come to watch how you work.")
+off_topic_lines = PackedStringArray("Hey not my cup of tea.")
+metadata/_custom_type_script = "uid://b5j37h6jqkfhq"
+
+[sub_resource type="Resource" id="Resource_tbmy8"]
+script = ExtResource("1_g2or3")
+title = "I don't like it when people read my mind."
+post_title = "If you could have one thing what would it be?"
+her_comment = "Magnetos Helmet"
+love = 5.0
+metadata/_custom_type_script = "uid://wfcy3lai43xm"
+
+[sub_resource type="Resource" id="Resource_oa1go"]
+script = ExtResource("1_sceeb")
+lines = PackedStringArray("Quite windy today but beutfil thoguh a lot of colors.", "I am interested though", "Why are you wearing that hat?")
+topic = SubResource("Resource_tbmy8")
+on_topic_lines = PackedStringArray("Weird, but I like it.\n", "I really like Marvel.\nI would really like to go watch Doomsday when it comes out.")
+off_topic_lines = PackedStringArray("Not quite my tempo.")
 metadata/_custom_type_script = "uid://b5j37h6jqkfhq"
 
 [sub_resource type="Resource" id="Resource_5qce7"]
 script = ExtResource("1_g2or3")
-her_comment = "this is so true :o"
+title = "Dogs"
+post_title = "Can I use dogs to invest in stocks?"
+her_comment = "OFC YOU CAN! They will totallly most definitely make better investment decisions that you. Totally. Without a doubt...... btw do you have a single braincell"
+love = -2.0
 metadata/_custom_type_script = "uid://wfcy3lai43xm"
 
 [sub_resource type="Resource" id="Resource_bv22e"]
 script = ExtResource("1_g2or3")
-title = "cats"
-her_comment = "i did this to my cat once"
-love = 2.0
+title = "Kratt"
+post_title = "Has anyone see or heard about the kratt that was walking near the pirogrovi park?"
+her_comment = "My grandma was there yesterday i will ask her."
 metadata/_custom_type_script = "uid://wfcy3lai43xm"
 
 [sub_resource type="Resource" id="Resource_71avb"]
 script = ExtResource("1_g2or3")
-her_comment = "THIS ^"
+title = "Hiking"
+post_title = "Has anyone tried to hike mount munamägi?"
+her_comment = "To little of a hike for me but sure?!"
+love = 1.0
 metadata/_custom_type_script = "uid://wfcy3lai43xm"
 
 [sub_resource type="Resource" id="Resource_7t42j"]
 script = ExtResource("1_g2or3")
-title = "grandma"
-her_comment = "lol this happened to my grandma"
+title = "French horn"
+post_title = "Can i connect my french horn to a speaker so it is more louder?"
+her_comment = "Stop! dont come next me!"
+love = -4.0
+metadata/_custom_type_script = "uid://wfcy3lai43xm"
+
+[sub_resource type="Resource" id="Resource_kpgvy"]
+script = ExtResource("1_g2or3")
+title = "Rust developer"
+post_title = "I feel like 80% of coders i know are realllly like reallly quiet."
+her_comment = "My ex was a coder he was a rust developer and yes he was vary quiet. Too quiet for me."
+love = -2.0
+metadata/_custom_type_script = "uid://wfcy3lai43xm"
+
+[sub_resource type="Resource" id="Resource_b0c3f"]
+script = ExtResource("1_g2or3")
+title = "Ai posters"
+post_title = "RAAAAAH AI POSTER I WILL NEVER EAT AT A PLACE 
+WHERE THEY HAVE AI SLOP POSTERS."
+her_comment = "Same no likey!"
+love = -6.0
+metadata/_custom_type_script = "uid://wfcy3lai43xm"
+
+[sub_resource type="Resource" id="Resource_54245"]
+script = ExtResource("1_g2or3")
+metadata/_custom_type_script = "uid://wfcy3lai43xm"
+
+[sub_resource type="Resource" id="Resource_n4pyt"]
+script = ExtResource("1_g2or3")
+title = "Bold"
+post_title = "top 10+ Bold celebrities  "
+her_comment = "Watch nojo stop getting ideas from here.
+Dont wanna know that ty!"
+love = -2.0
+metadata/_custom_type_script = "uid://wfcy3lai43xm"
+
+[sub_resource type="Resource" id="Resource_h12t6"]
+script = ExtResource("1_g2or3")
+title = "I just had a Hair transplantation "
+post_title = "Can i give my Cockatoo
+hair transplantation? "
+her_comment = "AHAHAHHAAA! Surely not! Kinda is a ick if i know someone has a hair transplant."
+metadata/_custom_type_script = "uid://wfcy3lai43xm"
+
+[sub_resource type="Resource" id="Resource_wmrsj"]
+script = ExtResource("1_g2or3")
+title = "Search History"
+post_title = "WHy have i gotten ads for like 5 different PSY-OP noticing courses. Like. Is this the big new trend? Is it just me???"
+her_comment = "I think this says more about your search history than you realise…"
 metadata/_custom_type_script = "uid://wfcy3lai43xm"
 
 [resource]
 script = ExtResource("2_sceeb")
-random_lydia_responses = Array[ExtResource("1_g2or3")]([SubResource("Resource_5qce7"), SubResource("Resource_bv22e"), SubResource("Resource_71avb"), SubResource("Resource_7t42j")])
-date = Array[ExtResource("1_sceeb")]([SubResource("Resource_fto0k"), SubResource("Resource_w83kl")])
+random_lydia_responses = Array[ExtResource("1_g2or3")]([SubResource("Resource_5qce7"), SubResource("Resource_bv22e"), SubResource("Resource_71avb"), SubResource("Resource_7t42j"), SubResource("Resource_kpgvy"), SubResource("Resource_b0c3f"), SubResource("Resource_54245"), SubResource("Resource_n4pyt"), SubResource("Resource_h12t6"), SubResource("Resource_wmrsj")])
+date = Array[ExtResource("1_sceeb")]([SubResource("Resource_fto0k"), SubResource("Resource_w83kl"), SubResource("Resource_2yw20"), SubResource("Resource_oa1go")])
 required_love = 20.0
 ad_images = Array[Texture2D]([ExtResource("1_2yw20"), ExtResource("2_5es67"), ExtResource("3_54245")])
 metadata/_custom_type_script = "uid://cbyatbh2bemkl"
