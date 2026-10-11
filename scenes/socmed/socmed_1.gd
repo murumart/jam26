@@ -25,7 +25,7 @@ func clear_posts() -> void:
 	var __ := post_container.get_children().map(func(n: Node) -> void: n.queue_free())
 
 
-func generate_posts(dials: Array[Dialogue]) -> void:
+func generate_posts(convos: Array[Conversation]) -> void:
 	var posts := []
 	for i in 29:
 		var p: Post = post_scene.instantiate()
@@ -37,10 +37,9 @@ func generate_posts(dials: Array[Dialogue]) -> void:
 		var chld := Post.add_comment_child(p.comments, "u/lydia\n" + comment.comment)
 		chld.set_custom_color(0, Color.GREEN)
 		chld.set_metadata(0, comment)
-	for dlg in dials:
-		assert(dlg.meta, "need topic question")
+	for c in convos:
 		var p: Post = post_scene.instantiate()
-		var topic := dlg.meta as Post.Topic
+		var topic := c.topic.to_topic()
 		p.post_title_label.text = topic.post
 		p.poster_name_label.text = "u/" + Post.NAMES[randi() % Post.NAMES.size()]
 		p.create_comments()

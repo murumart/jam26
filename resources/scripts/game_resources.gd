@@ -7,3 +7,6 @@ class_name GameResources extends Resource
 
 ## the date you will have with lydia.. parts of conversation
 @export var date: Array[Conversation]
+
+## love required to win the game
+@export_range(1.0, 30.0) var required_love: float

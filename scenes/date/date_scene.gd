@@ -20,7 +20,6 @@ var date_dials: Array[Dialogue]
 var state: State
 
 const MAX_TIME := 45.0
-const MAX_LOVE := 20.0
 
 var _current_topic: Topic
 var _current_convo: Conversation
@@ -37,10 +36,9 @@ func _ready() -> void:
 	__ = ui.choice_chosen.connect(_choice_chosen)
 	_input_gotten.connect_to(ran_out_of_time)
 	__ = tablet.socmed.post_topic_remembered.connect(_on_post_remembered)
-	tablet.socmed.generate_posts(date_dials)
+	tablet.socmed.generate_posts(game.date)
 	_game_loop()
 	__ = SND.play_music(preload("res://scenes/date/laul_v4.ogg"))
-	await get_tree().process_frame
 	tablet.put_down()
 
 
@@ -61,7 +59,7 @@ func _game_loop() -> void:
 		date_progress += 1
 		await _get_input()
 	# game over
-	if _love >= 20.0:
+	if _love >= game.required_love:
 		UI.swipe_transition(load("res://scenes/date/over_good.tscn") as PackedScene)
 	else:
 		UI.swipe_transition(load("res://scenes/date/over_bad.tscn") as PackedScene)
@@ -100,7 +98,7 @@ func _choice_chosen(choice: String) -> void:
 			_love += topic.love * 0.25
 		else:
 			_love += topic.love
-	ui.display_love(true, _love, MAX_LOVE)
+	ui.display_love(true, _love, game.required_love)
 	state = State.TALKING
 	ui.speak_dialogue(
 		Dialogue.from(_current_convo.on_topic_lines if right else _current_convo.off_topic_lines)
@@ -116,7 +114,7 @@ func _get_input() -> void:
 	ui.display_choices(["???", "???", "???"])
 	state = State.WAITING_FOR_RESPONSE
 	await _input_gotten.fired
-	ui.display_love(true, _love, MAX_LOVE)
+	ui.display_love(true, _love, game.required_love)
 
 
 func _tablet_requested() -> void:
