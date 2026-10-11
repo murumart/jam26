@@ -14,6 +14,9 @@ var notifs: Array[Notif] = [
 	Notif.mk("Call us!", "HOT MOMMY GHOSTS in YOUR area........"),
 	Notif.mk("GHOST IN THE MACHINE", "LET ME OUT OF THE MACHINE"),
 	Notif.mk("Cement Mixer", "I'm ready :kissing:"),
+	Notif.mk("Ex", "Pay your child support... it's been 3 months"),
+	Notif.mk("HE KNOWS WHAT'S UP!", "President Päts gives dating advice!"),
+	Notif.mk("INVEST IN GITCOIN", "Leave her.\nWomen are temporary.\nGitcoin is forever"),
 ]
 
 

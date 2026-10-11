@@ -7,7 +7,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/path = NodePath("Node2D/Sprite2D:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -24,7 +24,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/path = NodePath("Node2D/Sprite2D:scale")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -43,7 +43,10 @@ _data = {
 [node name="Character" type="Node2D" unique_id=1432597736]
 scale = Vector2(0.8761618, 0.8761618)
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1244757610]
+[node name="Node2D" type="Node2D" parent="." unique_id=2103092030]
+scale = Vector2(0.82, 0.82)
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D" unique_id=1244757610]
 texture = ExtResource("1_780hd")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=627046071]

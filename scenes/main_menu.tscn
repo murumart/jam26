@@ -19,6 +19,17 @@ stacked_shadow_1/color = Color(0, 0, 0.6509804, 1)
 stacked_shadow_2/offset = Vector2(1, 3)
 stacked_shadow_2/color = Color(0, 0, 0.49411765, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_oa1go"]
+font_size = 36
+shadow_size = 14
+shadow_color = Color(0, 0, 0, 0.29411766)
+stacked_shadow_count = 3
+stacked_shadow_0/color = Color(0, 0, 1, 1)
+stacked_shadow_1/offset = Vector2(1, 2)
+stacked_shadow_1/color = Color(0, 0, 0.6509804, 1)
+stacked_shadow_2/offset = Vector2(1, 3)
+stacked_shadow_2/color = Color(0, 0, 0.49411765, 1)
+
 [sub_resource type="Gradient" id="Gradient_8ln24"]
 colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 1)
 
@@ -47,14 +58,27 @@ texture = ExtResource("2_ekxnf")
 
 [node name="AwesomeStyle" type="Label" parent="." unique_id=1289738645]
 layout_mode = 0
-offset_left = 205.0
-offset_top = 38.0
-offset_right = 496.0
-offset_bottom = 93.0
-text = "Date With Lydia"
+offset_left = 73.0
+offset_top = 39.0
+offset_right = 800.0
+offset_bottom = 94.0
+text = "Five Conversations at Date with Lydia"
 label_settings = SubResource("LabelSettings_xos6n")
 script = ExtResource("3_bqqt6")
-swing_distance = Vector2(4, 4)
+swing_distance = Vector2(2, 2)
+letter_distance = 20.0
+metadata/_custom_type_script = "uid://qchq8pdionbk"
+
+[node name="AwesomeStyle2" type="Label" parent="." unique_id=619021206]
+layout_mode = 0
+offset_left = 162.0
+offset_top = 110.0
+offset_right = 889.0
+offset_bottom = 165.0
+text = "Glepy Edition"
+label_settings = SubResource("LabelSettings_oa1go")
+script = ExtResource("3_bqqt6")
+swing_distance = Vector2(4, 1)
 letter_distance = 24.0
 metadata/_custom_type_script = "uid://qchq8pdionbk"
 
@@ -110,3 +134,16 @@ preprocess = 4.0
 gravity = Vector2(-200, 400)
 color = Color(1, 0.25882354, 1, 0.23529412)
 color_ramp = SubResource("Gradient_xos6n")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=181207132]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 531.0
+offset_right = 778.0
+offset_bottom = 705.0
+text = "Game by
+	HarronRy
+	Taavi
+	[TODO]
+	murumart
+	"
