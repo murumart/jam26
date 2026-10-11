@@ -155,6 +155,10 @@ func next_or_skip() -> void:
 
 func _tablet_moused() -> void:
 	tablet_requested.emit()
+	if tablet.visible:
+		choices_container.hide()
+	else:
+		choices_container.show()
 
 
 func display_time(show_: bool, time: float, max_: float) -> void:

@@ -86,6 +86,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="TimeDisplay" type="HBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer2/HBoxContainer" unique_id=896979118]
+z_index = 4
 layout_mode = 2
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer2/HBoxContainer/TimeDisplay" unique_id=870058398]
