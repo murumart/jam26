@@ -4,6 +4,7 @@
 [ext_resource type="StyleBox" uid="uid://bdit7l32cemds" path="res://scenes/socmed/tablet_button_style.tres" id="2_1ivyu"]
 [ext_resource type="Texture2D" uid="uid://ts0k2l72o5b5" path="res://scenes/date/heartless.png" id="2_w83kl"]
 [ext_resource type="Texture2D" uid="uid://bswcg15qsiuns" path="res://scenes/date/heartful.png" id="3_jm3mc"]
+[ext_resource type="StyleBox" uid="uid://clmhcija1gh4q" path="res://theming/button.tres" id="4_ge66d"]
 [ext_resource type="Texture2D" uid="uid://d2h8r5v5jp260" path="res://scenes/date/textbox.png" id="4_w83kl"]
 [ext_resource type="Script" uid="uid://duofc25moc2sy" path="res://scenes/button_sound_adder.gd" id="6_jm3mc"]
 
@@ -106,26 +107,51 @@ layout_mode = 2
 visible = false
 layout_mode = 2
 focus_mode = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = ExtResource("4_ge66d")
+text = "asdasdasdasd"
 
 [node name="ChoiceButton2" type="Button" parent="MarginContainer/VBoxContainer/ChoicesContainer" unique_id=444828649]
 visible = false
 layout_mode = 2
 focus_mode = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = ExtResource("4_ge66d")
+text = "asdasdasdasd"
 
 [node name="ChoiceButton3" type="Button" parent="MarginContainer/VBoxContainer/ChoicesContainer" unique_id=1366573195]
 visible = false
 layout_mode = 2
 focus_mode = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = ExtResource("4_ge66d")
+text = "asdasdasdasd"
 
 [node name="ChoiceButton4" type="Button" parent="MarginContainer/VBoxContainer/ChoicesContainer" unique_id=1831778296]
 visible = false
 layout_mode = 2
 focus_mode = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = ExtResource("4_ge66d")
+text = "asdasdasdasd"
 
 [node name="ChoiceButton5" type="Button" parent="MarginContainer/VBoxContainer/ChoicesContainer" unique_id=706523102]
 visible = false
 layout_mode = 2
 focus_mode = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = ExtResource("4_ge66d")
+text = "asdasdasdasd"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=200237231]
 layout_mode = 2

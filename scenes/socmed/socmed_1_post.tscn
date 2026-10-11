@@ -4,6 +4,11 @@
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="1_mdxsp"]
 [ext_resource type="Texture2D" uid="uid://dljd6m0hkmrmt" path="res://scenes/socmed/ad3s.png" id="3_0cgnj"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oa1go"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tbmy8"]
+bg_color = Color(0, 0, 0, 1)
+
 [node name="Post" type="PanelContainer" unique_id=1376725 node_paths=PackedStringArray("comments", "post_title_label", "poster_name_label", "image", "ad_mode_hide")]
 anchors_preset = 15
 anchor_right = 1.0
@@ -74,6 +79,9 @@ theme_override_constants/margin_bottom = 2
 
 [node name="Button" type="Button" parent="MarginContainer/VBoxContainer/BottomBar/PanelContainer4/MarginContainer" unique_id=1634634555]
 layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_oa1go")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_tbmy8")
+disabled = true
 text = "↑"
 
 [node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/BottomBar" unique_id=1511576402]

@@ -1,9 +1,20 @@
 [gd_resource type="Theme" format=3 uid="uid://cnboutpd1o2or"]
 
+[ext_resource type="StyleBox" uid="uid://bsvq1kfs7py25" path="res://theming/button_dark.tres" id="1_0jgf6"]
 [ext_resource type="FontFile" uid="uid://ehboq0d5hfdq" path="res://theming/Jupiteroid-Regular.ttf" id="1_fha4y"]
+[ext_resource type="StyleBox" uid="uid://ra12ob1x552o" path="res://theming/button_hover.tres" id="2_hwyu5"]
+[ext_resource type="StyleBox" uid="uid://clmhcija1gh4q" path="res://theming/button.tres" id="3_4vgel"]
 
 [resource]
 default_font = ExtResource("1_fha4y")
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_color = Color(1.3235956e-07, 0.1662992, 0.16629922, 1)
+Button/colors/icon_disabled_color = Color(1, 1, 1, 0.4)
+Button/styles/disabled = ExtResource("1_0jgf6")
+Button/styles/hover = ExtResource("2_hwyu5")
+Button/styles/hover_pressed = ExtResource("2_hwyu5")
+Button/styles/normal = ExtResource("3_4vgel")
+Button/styles/pressed = ExtResource("1_0jgf6")
 Control/font_sizes/font_size = 24
 RichTextLabel/font_sizes/bold_font_size = 24
 RichTextLabel/font_sizes/bold_italics_font_size = 24
