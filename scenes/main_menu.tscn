@@ -69,6 +69,16 @@ offset_bottom = 502.0
 layout_mode = 2
 text = "Play"
 
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=1830750457]
+layout_mode = 2
+text = "Volume"
+
+[node name="MainVolume" type="HSlider" parent="VBoxContainer" unique_id=2065247046]
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+value = 0.75
+
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1059363736]
 modulate = Color(0, 0.24354124, 0.2439411, 1)
 clip_children = 1
