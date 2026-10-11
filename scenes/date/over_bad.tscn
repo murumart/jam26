@@ -1,5 +1,40 @@
 [gd_scene format=3 uid="uid://ifidau5p7ekg"]
 
+[ext_resource type="Texture2D" uid="uid://di7gekpfk63sl" path="res://scenes/date/lydia2.png" id="1_47lx6"]
+[ext_resource type="Script" uid="uid://dpgrqicutfvyc" path="res://scenes/date/over_bad.gd" id="1_hagom"]
+[ext_resource type="Texture2D" uid="uid://bf6ni7kvsc2me" path="res://scenes/date/bg.png" id="2_wq13y"]
+[ext_resource type="Script" uid="uid://qchq8pdionbk" path="res://resources/scripts/awesome_style.gd" id="4_w6ew1"]
+[ext_resource type="Script" uid="uid://duofc25moc2sy" path="res://scenes/button_sound_adder.gd" id="5_mmqls"]
+
+[sub_resource type="Gradient" id="Gradient_wq13y"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.3669355, 0.63508064, 0.88709676, 0.9979839)
+colors = PackedColorArray(0, 0, 0, 1, 0.41568628, 0.1882353, 0.08627451, 1, 0.3137255, 0.23529412, 0.23921569, 1, 0.106389076, 0.15051612, 0.16925669, 1, 0.09411765, 0.14901961, 0.17254902, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_xos6n"]
+gradient = SubResource("Gradient_wq13y")
+width = 200
+height = 150
+fill_from = Vector2(0, 0.3632479)
+fill_to = Vector2(0.82051283, 0.44444448)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_3d7it"]
+blend_mode = 2
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_hagom"]
+blend_mode = 1
+
+[sub_resource type="LabelSettings" id="LabelSettings_gq2sj"]
+font_size = 36
+outline_size = 4
+stacked_shadow_count = 3
+stacked_shadow_0/offset = Vector2(1, 2)
+stacked_shadow_0/color = Color(0, 0, 1, 1)
+stacked_shadow_1/offset = Vector2(1, 4)
+stacked_shadow_1/color = Color(0, 0, 0.6627451, 1)
+stacked_shadow_2/offset = Vector2(1, 6)
+stacked_shadow_2/color = Color(0, 0, 0.42352942, 1)
+
 [node name="OverBad" type="Control" unique_id=181117814]
 layout_mode = 3
 anchors_preset = 15
@@ -7,9 +42,69 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_hagom")
 
-[node name="Label" type="Label" parent="." unique_id=869169044]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=262304802]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 28.0
-text = "you loose"
+offset_right = 962.0
+offset_bottom = 723.0
+texture = SubResource("GradientTexture2D_xos6n")
+
+[node name="Lydia2" type="Sprite2D" parent="." unique_id=1986866922]
+modulate = Color(1, 1, 1, 0.52156866)
+material = SubResource("CanvasItemMaterial_3d7it")
+position = Vector2(636, 520)
+scale = Vector2(1.7696539, 0.34401834)
+texture = ExtResource("1_47lx6")
+
+[node name="Lydia3" type="Sprite2D" parent="Lydia2" unique_id=1588505627]
+modulate = Color(1, 1, 1, 0.52156866)
+use_parent_material = true
+position = Vector2(-76.91612, 0)
+scale = Vector2(0.99999994, 0.9999999)
+texture = ExtResource("1_47lx6")
+
+[node name="Lydia4" type="Sprite2D" parent="Lydia2/Lydia3" unique_id=1459412476]
+modulate = Color(1, 1, 1, 0.52156866)
+use_parent_material = true
+position = Vector2(-91.46799, 0)
+texture = ExtResource("1_47lx6")
+
+[node name="Lydia5" type="Sprite2D" parent="Lydia2/Lydia3/Lydia4" unique_id=366380442]
+modulate = Color(1, 1, 1, 0.52156866)
+use_parent_material = true
+position = Vector2(-153.83252, 0)
+texture = ExtResource("1_47lx6")
+
+[node name="Bg2" type="Sprite2D" parent="." unique_id=976725686]
+self_modulate = Color(0.40392157, 0.3137255, 0.40784314, 1)
+material = SubResource("CanvasItemMaterial_hagom")
+position = Vector2(494.94968, 366.0017)
+scale = Vector2(0.79546005, 1.0305556)
+texture = ExtResource("2_wq13y")
+
+[node name="Label" type="Label" parent="." unique_id=861633398]
+layout_mode = 0
+offset_left = 77.0
+offset_top = 29.0
+offset_right = 229.0
+offset_bottom = 71.0
+scale = Vector2(1.1721547, 5.895021)
+text = "Bad Date..."
+label_settings = SubResource("LabelSettings_gq2sj")
+script = ExtResource("4_w6ew1")
+swing_distance = Vector2(10, 10)
+letter_distance = 36.0
+metadata/_custom_type_script = "uid://qchq8pdionbk"
+
+[node name="Button" type="Button" parent="." unique_id=1786075027]
+layout_mode = 0
+offset_left = 662.0
+offset_top = 621.0
+offset_right = 749.0
+offset_bottom = 657.0
+text = "Return"
+
+[node name="ButtonSoundAdder" type="Node" parent="." unique_id=700786599]
+script = ExtResource("5_mmqls")
+metadata/_custom_type_script = "uid://duofc25moc2sy"

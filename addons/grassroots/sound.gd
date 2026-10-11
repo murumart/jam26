@@ -20,7 +20,8 @@ func _process(_delta: float) -> void:
 	if not _music_ops.is_empty():
 		var top: SoundOptions = _music_ops.pop_front()
 		if not is_instance_valid(top): return
-		_op_music(top.make_player(self, _current_music_player))
+		var maked := top.make_player(self, _current_music_player)
+		_op_music(maked)
 	while not _sound_ops.is_empty():
 		var top: SoundOptions = _sound_ops.pop_front()
 		if not is_instance_valid(top): return
@@ -44,6 +45,7 @@ func play_sound(sound: AudioStream) -> SoundOptions:
 
 
 func _op_music(streamp: AudioStreamPlayer) -> void:
+	assert(is_instance_valid(streamp))
 	_current_music_player = streamp
 	add_child(_current_music_player)
 	_current_music_player.play()
@@ -117,7 +119,7 @@ class SoundOptions:
 		if is_instance_valid(previous_player):
 			assert(previous_player is AudioStreamPlayer)
 			if _stream == previous_player.stream and _skip_same_sound:
-				return
+				return previous_player
 			var tw := sound.create_tween()
 			tw.tween_property(previous_player, ^"volume_linear", 0.0, _fade_time)
 			tw.tween_callback(previous_player.queue_free)

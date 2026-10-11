@@ -38,7 +38,7 @@ func _ready() -> void:
 	__ = tablet.socmed.post_topic_remembered.connect(_on_post_remembered)
 	tablet.socmed.generate_posts(game)
 	_game_loop()
-	__ = SND.play_music(preload("res://scenes/date/laul_v4.ogg"))
+	__ = SND.play_music(preload("res://scenes/date/laul_v4.ogg")).skip_same_sound(false)
 	tablet.put_down()
 
 
