@@ -142,14 +142,10 @@ her_comment = "Same no likey!"
 love = -6.0
 metadata/_custom_type_script = "uid://wfcy3lai43xm"
 
-[sub_resource type="Resource" id="Resource_54245"]
-script = ExtResource("1_g2or3")
-metadata/_custom_type_script = "uid://wfcy3lai43xm"
-
 [sub_resource type="Resource" id="Resource_n4pyt"]
 script = ExtResource("1_g2or3")
-title = "Bold"
-post_title = "top 10+ Bold celebrities  "
+title = "bald"
+post_title = "top 10+ bald celebrities  "
 her_comment = "Watch nojo stop getting ideas from here.
 Dont wanna know that ty!"
 love = -2.0
@@ -170,9 +166,39 @@ post_title = "WHy have i gotten ads for like 5 different PSY-OP noticing courses
 her_comment = "I think this says more about your search history than you realise…"
 metadata/_custom_type_script = "uid://wfcy3lai43xm"
 
+[sub_resource type="Resource" id="Resource_54245"]
+script = ExtResource("1_g2or3")
+her_comment = "THIS ^"
+metadata/_custom_type_script = "uid://wfcy3lai43xm"
+
+[sub_resource type="Resource" id="Resource_sq0an"]
+script = ExtResource("1_g2or3")
+title = "concrete mixer"
+post_title = "Does anyone like know how to work with concrete? I like wanna recreate Valge Daam in my apartment and like, that feeeeels better. "
+her_comment = "Oh so we have concrete fans in here too???? Despise it. We should go back to wooden huts. Oh and the concrete mixers, hate them."
+metadata/_custom_type_script = "uid://wfcy3lai43xm"
+
+[sub_resource type="Resource" id="Resource_n0f25"]
+script = ExtResource("1_g2or3")
+title = "Rust developer"
+post_title = " I feel like 80% of coders i know are realllly like reallly quiet."
+her_comment = "My ex was a coder he was a rust developer. I don’t think I ever heard him talk, like one. A bit too quiet for me."
+metadata/_custom_type_script = "uid://wfcy3lai43xm"
+
+[sub_resource type="Resource" id="Resource_oa1go"]
+script = ExtResource("1_g2or3")
+her_comment = "LOL"
+metadata/_custom_type_script = "uid://wfcy3lai43xm"
+
+[sub_resource type="Resource" id="Resource_yt20d"]
+script = ExtResource("1_g2or3")
+post_title = "Anyone else just felt like they’ve really just lost themselves?"
+her_comment = "No."
+metadata/_custom_type_script = "uid://wfcy3lai43xm"
+
 [resource]
 script = ExtResource("2_sceeb")
-random_lydia_responses = Array[ExtResource("1_g2or3")]([SubResource("Resource_5qce7"), SubResource("Resource_bv22e"), SubResource("Resource_71avb"), SubResource("Resource_7t42j"), SubResource("Resource_kpgvy"), SubResource("Resource_b0c3f"), SubResource("Resource_54245"), SubResource("Resource_n4pyt"), SubResource("Resource_h12t6"), SubResource("Resource_wmrsj")])
+random_lydia_responses = Array[ExtResource("1_g2or3")]([SubResource("Resource_5qce7"), SubResource("Resource_bv22e"), SubResource("Resource_71avb"), SubResource("Resource_7t42j"), SubResource("Resource_kpgvy"), SubResource("Resource_b0c3f"), SubResource("Resource_n4pyt"), SubResource("Resource_h12t6"), SubResource("Resource_wmrsj"), SubResource("Resource_54245"), SubResource("Resource_sq0an"), SubResource("Resource_n0f25"), SubResource("Resource_oa1go"), SubResource("Resource_yt20d")])
 date = Array[ExtResource("1_sceeb")]([SubResource("Resource_fto0k"), SubResource("Resource_w83kl"), SubResource("Resource_2yw20"), SubResource("Resource_frfyr"), SubResource("Resource_g5omh")])
 required_love = 20.0
 ad_images = Array[Texture2D]([ExtResource("1_2yw20"), ExtResource("2_5es67"), ExtResource("3_54245")])
