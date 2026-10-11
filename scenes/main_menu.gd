@@ -5,10 +5,11 @@ extends Control
 
 
 func _ready() -> void:
-	var __ := play_button.pressed.connect(func() -> void:
+	var __ :Variant= play_button.pressed.connect(func() -> void:
 		play_button.disabled = true
 		UI.swipe_transition(load("res://scenes/date/date_scene.tscn") as PackedScene)
 	)
+	__ = SND.play_music(preload("res://scenes/date/laul_v4.ogg")).skip_same_sound(false)
 	__ = main_volume.value_changed.connect(func(v: float) -> void:
 		AudioServer.set_bus_volume_linear(0, v)
 	)

@@ -150,3 +150,14 @@ text = "Game by
 	"
 fit_content = true
 scroll_active = false
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="." unique_id=540757709]
+layout_mode = 0
+offset_left = 381.0
+offset_top = 400.0
+offset_right = 920.0
+offset_bottom = 669.0
+bbcode_enabled = true
+text = "You didn’t prepare for your date like at all. Why should you? You can just stalk their Glepy history, it’s already haunting up the web, might as well use it.[color=444] You need her, for the ultimate human machine experiment. It’s life changing. Don’t fail.[/color]
+Stalk her Glepy history for topics to talk back to her whenever she asks you something."
+scroll_active = false

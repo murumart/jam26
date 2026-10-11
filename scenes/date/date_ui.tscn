@@ -235,5 +235,14 @@ offset = Vector2(6.12, -31.55)
 
 [node name="ButtonSoundAdder" type="Node" parent="." unique_id=681359073 node_paths=PackedStringArray("exclusions")]
 script = ExtResource("6_jm3mc")
-exclusions = [NodePath("../MarginContainer/VBoxContainer/VBoxContainer/PanelContainer/NextDial")]
+exclusions = [NodePath("../MarginContainer/VBoxContainer/VBoxContainer/PanelContainer/NextDial"), NodePath("../TabletExitButton")]
 metadata/_custom_type_script = "uid://duofc25moc2sy"
+
+[node name="TabletExitButton" type="Button" parent="." unique_id=1316933876]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 57.0
+offset_right = 918.0
+offset_bottom = 211.0
+focus_mode = 0
+flat = true

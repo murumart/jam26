@@ -9,7 +9,7 @@ const ICON = preload("res://scenes/socmed/icon.png")
 
 
 func _ready() -> void:
-	position.y = -300.0
+	position.y = -500.0
 	var __ := close_button.pressed.connect(close)
 
 
@@ -19,7 +19,7 @@ func open(title: String, text: String, image: Texture2D = null) -> void:
 	notif_title.text = title
 	notif_text.text = text
 	var tw := create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
-	__ = tw.tween_property(self, "position:y", -180.0, 0.5).from(-300.0)
+	__ = tw.tween_property(self, "position:y", -180.0, 0.5).from(-500.0)
 	close_button.disabled = false	
 	close_button.text = ["NO", "CLOSE", "STOP", "PLEASE", "CLOSE", "NO"].pick_random()
 
@@ -27,4 +27,4 @@ func open(title: String, text: String, image: Texture2D = null) -> void:
 func close() -> void:
 	close_button.disabled = true
 	var tw := create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
-	var __: Variant = tw.tween_property(self, "position:y", -300.0, 0.5)
+	var __: Variant = tw.tween_property(self, "position:y", -500.0, 0.5)

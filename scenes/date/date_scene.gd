@@ -39,7 +39,7 @@ func _ready() -> void:
 	__ = tablet.socmed.post_topic_remembered.connect(_on_post_remembered)
 	tablet.socmed.generate_posts(game)
 	_game_loop()
-	__ = SND.play_music(preload("res://scenes/date/laul_v4.ogg")).skip_same_sound(false)
+	__ = SND.play_music(preload("res://scenes/date/laul_v4.ogg")).skip_same_sound(true)
 	tablet.put_down()
 
 
@@ -130,8 +130,11 @@ func _get_input() -> void:
 	state = State.WAITING_FOR_RESPONSE
 	ui.tabletable = true
 	await _input_gotten.fired
+	tablet.put_down()
 	ui.display_love(true, _love, game.required_love)
 	if _time <= 0.0 and _current_convo.out_of_time_lines:
+		ui.tabletable = false
+		state = State.TALKING
 		ui.speak_dialogue(Dialogue.from(_current_convo.out_of_time_lines).to_speaker())
 		await ui.dial_ended
 

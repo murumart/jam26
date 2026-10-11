@@ -21,6 +21,8 @@ signal choice_chosen(choice: String)
 @export var love_progress_bar: Range
 @export var love_particles: CPUParticles2D
 
+@onready var tablet_exit_button: Button = $TabletExitButton
+
 var tabletable := false:
 	set(to):
 		tabletable = to
@@ -62,6 +64,10 @@ func _ready() -> void:
 		if not tabletable: return
 		var tw := create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
 		var ___ := tw.tween_property(phone_vis, "position:y", 0.0, 0.50)
+	)
+	__ = tablet_exit_button.pressed.connect(func() -> void:
+		if not tabletable: return
+		tablet_requested.emit()
 	)
 
 
@@ -188,6 +194,7 @@ func display_love(show_: bool, love: float, max_: float) -> void:
 	if not show_:
 		love_display.hide()
 		return
+	love = minf(love, max_)
 	love_display.show()
 	var last := love_progress_bar.value
 	love_progress_bar.value = love
